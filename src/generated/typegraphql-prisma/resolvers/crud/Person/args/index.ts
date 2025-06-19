@@ -1,0 +1,15 @@
+export { AggregatePersonArgs } from "./AggregatePersonArgs";
+export { CreateManyAndReturnPersonArgs } from "./CreateManyAndReturnPersonArgs";
+export { CreateManyPersonArgs } from "./CreateManyPersonArgs";
+export { CreateOnePersonArgs } from "./CreateOnePersonArgs";
+export { DeleteManyPersonArgs } from "./DeleteManyPersonArgs";
+export { DeleteOnePersonArgs } from "./DeleteOnePersonArgs";
+export { FindFirstPersonArgs } from "./FindFirstPersonArgs";
+export { FindFirstPersonOrThrowArgs } from "./FindFirstPersonOrThrowArgs";
+export { FindManyPersonArgs } from "./FindManyPersonArgs";
+export { FindUniquePersonArgs } from "./FindUniquePersonArgs";
+export { FindUniquePersonOrThrowArgs } from "./FindUniquePersonOrThrowArgs";
+export { GroupByPersonArgs } from "./GroupByPersonArgs";
+export { UpdateManyPersonArgs } from "./UpdateManyPersonArgs";
+export { UpdateOnePersonArgs } from "./UpdateOnePersonArgs";
+export { UpsertOnePersonArgs } from "./UpsertOnePersonArgs";

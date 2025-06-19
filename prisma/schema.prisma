@@ -1,0 +1,57 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  output    = "../src/generated/typegraphql-prisma"
+  useUncheckedScalarInputs = true
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Person {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  inflows Inflow[]
+}
+
+model Facility {
+  id    Int   @id @default(autoincrement())
+  name  String  @unique
+  inflows Inflow[]
+}
+
+model Job {
+  id    Int   @id @default(autoincrement())
+  name  String  @unique
+  inflows Inflow[]
+}
+
+model Inflow {
+  id          Int      @id @default(autoincrement())
+  amount      Float
+  date        DateTime
+  description String?
+
+  personId    Int
+  person      Person   @relation(fields: [personId], references: [id])
+
+  facilityId  Int
+  facility    Facility @relation(fields: [facilityId], references: [id])
+
+  jobId       Int
+  job         Job      @relation(fields: [jobId], references: [id])
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([personId])
+  @@index([facilityId])
+  @@index([jobId])
+}

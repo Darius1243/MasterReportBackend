@@ -1,0 +1,23 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+
+# Environment variables
+.env
+
+# SQLite database file
+database.sqlite
+*.db
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Yarn lockfile
+yarn.lock
+# package-lock.json # Можно добавить, если хотите быть уверены

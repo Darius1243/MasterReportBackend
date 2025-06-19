@@ -1,0 +1,15 @@
+export { AggregateFacilityArgs } from "./AggregateFacilityArgs";
+export { CreateManyAndReturnFacilityArgs } from "./CreateManyAndReturnFacilityArgs";
+export { CreateManyFacilityArgs } from "./CreateManyFacilityArgs";
+export { CreateOneFacilityArgs } from "./CreateOneFacilityArgs";
+export { DeleteManyFacilityArgs } from "./DeleteManyFacilityArgs";
+export { DeleteOneFacilityArgs } from "./DeleteOneFacilityArgs";
+export { FindFirstFacilityArgs } from "./FindFirstFacilityArgs";
+export { FindFirstFacilityOrThrowArgs } from "./FindFirstFacilityOrThrowArgs";
+export { FindManyFacilityArgs } from "./FindManyFacilityArgs";
+export { FindUniqueFacilityArgs } from "./FindUniqueFacilityArgs";
+export { FindUniqueFacilityOrThrowArgs } from "./FindUniqueFacilityOrThrowArgs";
+export { GroupByFacilityArgs } from "./GroupByFacilityArgs";
+export { UpdateManyFacilityArgs } from "./UpdateManyFacilityArgs";
+export { UpdateOneFacilityArgs } from "./UpdateOneFacilityArgs";
+export { UpsertOneFacilityArgs } from "./UpsertOneFacilityArgs";

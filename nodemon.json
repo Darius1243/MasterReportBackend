@@ -1,0 +1,6 @@
+{
+	"watch": ["src/**/*.ts", "prisma/schema.prisma"],
+	"ext": "ts,js,json,prisma",
+	"ignore": ["src/generated/**", "node_modules/**", "dist/**"],
+	"exec": "yarn dev:reload"
+}

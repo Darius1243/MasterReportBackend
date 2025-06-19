@@ -1,0 +1,15 @@
+export { AggregateInflowArgs } from "./AggregateInflowArgs";
+export { CreateManyAndReturnInflowArgs } from "./CreateManyAndReturnInflowArgs";
+export { CreateManyInflowArgs } from "./CreateManyInflowArgs";
+export { CreateOneInflowArgs } from "./CreateOneInflowArgs";
+export { DeleteManyInflowArgs } from "./DeleteManyInflowArgs";
+export { DeleteOneInflowArgs } from "./DeleteOneInflowArgs";
+export { FindFirstInflowArgs } from "./FindFirstInflowArgs";
+export { FindFirstInflowOrThrowArgs } from "./FindFirstInflowOrThrowArgs";
+export { FindManyInflowArgs } from "./FindManyInflowArgs";
+export { FindUniqueInflowArgs } from "./FindUniqueInflowArgs";
+export { FindUniqueInflowOrThrowArgs } from "./FindUniqueInflowOrThrowArgs";
+export { GroupByInflowArgs } from "./GroupByInflowArgs";
+export { UpdateManyInflowArgs } from "./UpdateManyInflowArgs";
+export { UpdateOneInflowArgs } from "./UpdateOneInflowArgs";
+export { UpsertOneInflowArgs } from "./UpsertOneInflowArgs";

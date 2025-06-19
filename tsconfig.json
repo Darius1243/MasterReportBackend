@@ -1,0 +1,25 @@
+{
+	"compilerOptions": {
+		"baseUrl": "./src" /* Базовый URL для разрешения модулей. Все пути в 'paths' будут относительно этого URL. */,
+		"target": "ES2020" /* Устанавливает целевую версию JavaScript */,
+		"module": "commonjs" /* Указывает систему модулей: 'commonjs', 'amd', 'system', 'umd', 'es2015', 'esnext' */,
+		"outDir": "./dist" /* Директория для скомпилированных файлов */,
+		"rootDir": "./src" /* Корневая директория исходных файлов */,
+		"paths": {
+			"@generated/*": ["generated/*"],
+			"@services/*": ["services/*"],
+			"@features/*": ["features/*"],
+			"@config/*": ["config/*"],
+			"@utils/*": ["utils/*"]
+		},
+		"strict": true /* Включает все строгие проверки типов */,
+		"esModuleInterop": true /* Позволяет импортировать CommonJS модули как ES модули */,
+		"skipLibCheck": true /* Пропускает проверку типов для всех файлов деклараций (*.d.ts) */,
+		"forceConsistentCasingInFileNames": true /* Гарантирует, что регистр в именах файлов будет согласованным */,
+		"resolveJsonModule": true /* Позволяет импортировать JSON файлы */,
+		"experimentalDecorators": true, // Необходимо для type-graphql
+		"emitDecoratorMetadata": true // Необходимо для type-graphql
+	},
+	"include": ["src/**/*"] /* Какие файлы включать в компиляцию */,
+	"exclude": ["node_modules", "**/*.spec.ts"] /* Какие файлы исключать */
+}

@@ -1,0 +1,1 @@
+export { FacilityInflowsArgs } from "./FacilityInflowsArgs";
