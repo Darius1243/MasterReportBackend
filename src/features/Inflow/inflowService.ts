@@ -61,9 +61,11 @@ export const inflowService = {
 		if (!personExists) {
 			throw new UserInputError(`Сотрудник с ID ${personId} не найден.`)
 		}
+
 		if (!facilityExists) {
 			throw new UserInputError(`Объект с ID ${facilityId} не найден.`)
 		}
+
 		if (!jobExists) {
 			throw new UserInputError(`Работа с ID ${jobId} не найдена.`)
 		}
