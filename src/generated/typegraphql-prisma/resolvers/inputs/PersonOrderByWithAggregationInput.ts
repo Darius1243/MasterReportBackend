@@ -20,12 +20,12 @@ export class PersonOrderByWithAggregationInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  email?: "asc" | "desc" | undefined;
+  name?: "asc" | "desc" | undefined;
 
   @TypeGraphQL.Field(_type => SortOrderInput, {
     nullable: true
   })
-  name?: SortOrderInput | undefined;
+  email?: SortOrderInput | undefined;
 
   @TypeGraphQL.Field(_type => PersonCountOrderByAggregateInput, {
     nullable: true

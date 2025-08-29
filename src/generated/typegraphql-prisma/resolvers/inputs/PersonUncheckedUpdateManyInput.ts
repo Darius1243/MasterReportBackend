@@ -16,10 +16,10 @@ export class PersonUncheckedUpdateManyInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  email?: StringFieldUpdateOperationsInput | undefined;
+  name?: StringFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
     nullable: true
   })
-  name?: NullableStringFieldUpdateOperationsInput | undefined;
+  email?: NullableStringFieldUpdateOperationsInput | undefined;
 }

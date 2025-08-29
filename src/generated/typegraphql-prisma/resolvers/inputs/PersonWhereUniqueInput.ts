@@ -3,8 +3,8 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
 import { InflowListRelationFilter } from "../inputs/InflowListRelationFilter";
+import { OutflowListRelationFilter } from "../inputs/OutflowListRelationFilter";
 import { PersonWhereInput } from "../inputs/PersonWhereInput";
-import { StringNullableFilter } from "../inputs/StringNullableFilter";
 
 @TypeGraphQL.InputType("PersonWhereUniqueInput", {})
 export class PersonWhereUniqueInput {
@@ -12,6 +12,11 @@ export class PersonWhereUniqueInput {
     nullable: true
   })
   id?: number | undefined;
+
+  @TypeGraphQL.Field(_type => String, {
+    nullable: true
+  })
+  name?: string | undefined;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
@@ -33,13 +38,13 @@ export class PersonWhereUniqueInput {
   })
   NOT?: PersonWhereInput[] | undefined;
 
-  @TypeGraphQL.Field(_type => StringNullableFilter, {
-    nullable: true
-  })
-  name?: StringNullableFilter | undefined;
-
   @TypeGraphQL.Field(_type => InflowListRelationFilter, {
     nullable: true
   })
   inflows?: InflowListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => OutflowListRelationFilter, {
+    nullable: true
+  })
+  outflows?: OutflowListRelationFilter | undefined;
 }

@@ -1,11 +1,8 @@
-import {
-	Job,
-	JobCreateInput,
-	JobUpdateInput,
-} from '@generated/typegraphql-prisma'
+import { Job, JobCreateInput } from '@generated/typegraphql-prisma'
 import { handlePrismaError } from '@utils/errors'
 import { UserInputError } from 'apollo-server-express'
 import { Arg, Int, Mutation, Query, Resolver } from 'type-graphql'
+import { JobUpdateSimpleInput } from './Inputs/JobUpdateSimpleInput'
 import { jobService } from './jobService'
 
 @Resolver(Job)
@@ -34,7 +31,7 @@ export class JobResolver {
 	@Mutation(() => Job, { nullable: true })
 	async updateJob(
 		@Arg('id', () => Int) id: number,
-		@Arg('data', () => JobUpdateInput) data: JobUpdateInput
+		@Arg('data', () => JobUpdateSimpleInput) data: JobUpdateSimpleInput
 	): Promise<Job | null> {
 		const hasActualUpdates = Object.values(data).some(
 			value => value !== undefined && value !== null

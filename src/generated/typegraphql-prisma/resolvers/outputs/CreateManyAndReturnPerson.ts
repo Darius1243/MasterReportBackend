@@ -13,10 +13,10 @@ export class CreateManyAndReturnPerson {
   @TypeGraphQL.Field(_type => String, {
     nullable: false
   })
-  email!: string;
+  name!: string;
 
   @TypeGraphQL.Field(_type => String, {
     nullable: true
   })
-  name!: string | null;
+  email!: string | null;
 }

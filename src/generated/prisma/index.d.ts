@@ -33,6 +33,16 @@ export type Job = $Result.DefaultSelection<Prisma.$JobPayload>
  * 
  */
 export type Inflow = $Result.DefaultSelection<Prisma.$InflowPayload>
+/**
+ * Model Outflow
+ * 
+ */
+export type Outflow = $Result.DefaultSelection<Prisma.$OutflowPayload>
+/**
+ * Model DocumentType
+ * 
+ */
+export type DocumentType = $Result.DefaultSelection<Prisma.$DocumentTypePayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -195,6 +205,26 @@ export class PrismaClient<
     * ```
     */
   get inflow(): Prisma.InflowDelegate<ExtArgs>;
+
+  /**
+   * `prisma.outflow`: Exposes CRUD operations for the **Outflow** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Outflows
+    * const outflows = await prisma.outflow.findMany()
+    * ```
+    */
+  get outflow(): Prisma.OutflowDelegate<ExtArgs>;
+
+  /**
+   * `prisma.documentType`: Exposes CRUD operations for the **DocumentType** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more DocumentTypes
+    * const documentTypes = await prisma.documentType.findMany()
+    * ```
+    */
+  get documentType(): Prisma.DocumentTypeDelegate<ExtArgs>;
 }
 
 export namespace Prisma {
@@ -675,7 +705,9 @@ export namespace Prisma {
     Person: 'Person',
     Facility: 'Facility',
     Job: 'Job',
-    Inflow: 'Inflow'
+    Inflow: 'Inflow',
+    Outflow: 'Outflow',
+    DocumentType: 'DocumentType'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -691,7 +723,7 @@ export namespace Prisma {
 
   export type TypeMap<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, ClientOptions = {}> = {
     meta: {
-      modelProps: "person" | "facility" | "job" | "inflow"
+      modelProps: "person" | "facility" | "job" | "inflow" | "outflow" | "documentType"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -975,6 +1007,146 @@ export namespace Prisma {
           }
         }
       }
+      Outflow: {
+        payload: Prisma.$OutflowPayload<ExtArgs>
+        fields: Prisma.OutflowFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.OutflowFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutflowPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.OutflowFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutflowPayload>
+          }
+          findFirst: {
+            args: Prisma.OutflowFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutflowPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.OutflowFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutflowPayload>
+          }
+          findMany: {
+            args: Prisma.OutflowFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutflowPayload>[]
+          }
+          create: {
+            args: Prisma.OutflowCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutflowPayload>
+          }
+          createMany: {
+            args: Prisma.OutflowCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.OutflowCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutflowPayload>[]
+          }
+          delete: {
+            args: Prisma.OutflowDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutflowPayload>
+          }
+          update: {
+            args: Prisma.OutflowUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutflowPayload>
+          }
+          deleteMany: {
+            args: Prisma.OutflowDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.OutflowUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.OutflowUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$OutflowPayload>
+          }
+          aggregate: {
+            args: Prisma.OutflowAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateOutflow>
+          }
+          groupBy: {
+            args: Prisma.OutflowGroupByArgs<ExtArgs>
+            result: $Utils.Optional<OutflowGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.OutflowCountArgs<ExtArgs>
+            result: $Utils.Optional<OutflowCountAggregateOutputType> | number
+          }
+        }
+      }
+      DocumentType: {
+        payload: Prisma.$DocumentTypePayload<ExtArgs>
+        fields: Prisma.DocumentTypeFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DocumentTypeFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DocumentTypeFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          findFirst: {
+            args: Prisma.DocumentTypeFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DocumentTypeFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          findMany: {
+            args: Prisma.DocumentTypeFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>[]
+          }
+          create: {
+            args: Prisma.DocumentTypeCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          createMany: {
+            args: Prisma.DocumentTypeCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DocumentTypeCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>[]
+          }
+          delete: {
+            args: Prisma.DocumentTypeDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          update: {
+            args: Prisma.DocumentTypeUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          deleteMany: {
+            args: Prisma.DocumentTypeDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DocumentTypeUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          upsert: {
+            args: Prisma.DocumentTypeUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentTypePayload>
+          }
+          aggregate: {
+            args: Prisma.DocumentTypeAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDocumentType>
+          }
+          groupBy: {
+            args: Prisma.DocumentTypeGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DocumentTypeGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DocumentTypeCountArgs<ExtArgs>
+            result: $Utils.Optional<DocumentTypeCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -1137,10 +1309,12 @@ export namespace Prisma {
 
   export type PersonCountOutputType = {
     inflows: number
+    outflows: number
   }
 
   export type PersonCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     inflows?: boolean | PersonCountOutputTypeCountInflowsArgs
+    outflows?: boolean | PersonCountOutputTypeCountOutflowsArgs
   }
 
   // Custom InputTypes
@@ -1161,6 +1335,13 @@ export namespace Prisma {
     where?: InflowWhereInput
   }
 
+  /**
+   * PersonCountOutputType without action
+   */
+  export type PersonCountOutputTypeCountOutflowsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OutflowWhereInput
+  }
+
 
   /**
    * Count Type FacilityCountOutputType
@@ -1168,10 +1349,12 @@ export namespace Prisma {
 
   export type FacilityCountOutputType = {
     inflows: number
+    outflow: number
   }
 
   export type FacilityCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     inflows?: boolean | FacilityCountOutputTypeCountInflowsArgs
+    outflow?: boolean | FacilityCountOutputTypeCountOutflowArgs
   }
 
   // Custom InputTypes
@@ -1190,6 +1373,13 @@ export namespace Prisma {
    */
   export type FacilityCountOutputTypeCountInflowsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: InflowWhereInput
+  }
+
+  /**
+   * FacilityCountOutputType without action
+   */
+  export type FacilityCountOutputTypeCountOutflowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OutflowWhereInput
   }
 
 
@@ -1250,20 +1440,20 @@ export namespace Prisma {
 
   export type PersonMinAggregateOutputType = {
     id: number | null
-    email: string | null
     name: string | null
+    email: string | null
   }
 
   export type PersonMaxAggregateOutputType = {
     id: number | null
-    email: string | null
     name: string | null
+    email: string | null
   }
 
   export type PersonCountAggregateOutputType = {
     id: number
-    email: number
     name: number
+    email: number
     _all: number
   }
 
@@ -1278,20 +1468,20 @@ export namespace Prisma {
 
   export type PersonMinAggregateInputType = {
     id?: true
-    email?: true
     name?: true
+    email?: true
   }
 
   export type PersonMaxAggregateInputType = {
     id?: true
-    email?: true
     name?: true
+    email?: true
   }
 
   export type PersonCountAggregateInputType = {
     id?: true
-    email?: true
     name?: true
+    email?: true
     _all?: true
   }
 
@@ -1383,8 +1573,8 @@ export namespace Prisma {
 
   export type PersonGroupByOutputType = {
     id: number
-    email: string
-    name: string | null
+    name: string
+    email: string | null
     _count: PersonCountAggregateOutputType | null
     _avg: PersonAvgAggregateOutputType | null
     _sum: PersonSumAggregateOutputType | null
@@ -1408,26 +1598,28 @@ export namespace Prisma {
 
   export type PersonSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
     name?: boolean
+    email?: boolean
     inflows?: boolean | Person$inflowsArgs<ExtArgs>
+    outflows?: boolean | Person$outflowsArgs<ExtArgs>
     _count?: boolean | PersonCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["person"]>
 
   export type PersonSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    email?: boolean
     name?: boolean
+    email?: boolean
   }, ExtArgs["result"]["person"]>
 
   export type PersonSelectScalar = {
     id?: boolean
-    email?: boolean
     name?: boolean
+    email?: boolean
   }
 
   export type PersonInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     inflows?: boolean | Person$inflowsArgs<ExtArgs>
+    outflows?: boolean | Person$outflowsArgs<ExtArgs>
     _count?: boolean | PersonCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type PersonIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -1436,11 +1628,12 @@ export namespace Prisma {
     name: "Person"
     objects: {
       inflows: Prisma.$InflowPayload<ExtArgs>[]
+      outflows: Prisma.$OutflowPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
-      email: string
-      name: string | null
+      name: string
+      email: string | null
     }, ExtArgs["result"]["person"]>
     composites: {}
   }
@@ -1806,6 +1999,7 @@ export namespace Prisma {
   export interface Prisma__PersonClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     inflows<T extends Person$inflowsArgs<ExtArgs> = {}>(args?: Subset<T, Person$inflowsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InflowPayload<ExtArgs>, T, "findMany"> | Null>
+    outflows<T extends Person$outflowsArgs<ExtArgs> = {}>(args?: Subset<T, Person$outflowsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1836,8 +2030,8 @@ export namespace Prisma {
    */ 
   interface PersonFieldRefs {
     readonly id: FieldRef<"Person", 'Int'>
-    readonly email: FieldRef<"Person", 'String'>
     readonly name: FieldRef<"Person", 'String'>
+    readonly email: FieldRef<"Person", 'String'>
   }
     
 
@@ -2170,6 +2364,26 @@ export namespace Prisma {
   }
 
   /**
+   * Person.outflows
+   */
+  export type Person$outflowsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    where?: OutflowWhereInput
+    orderBy?: OutflowOrderByWithRelationInput | OutflowOrderByWithRelationInput[]
+    cursor?: OutflowWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OutflowScalarFieldEnum | OutflowScalarFieldEnum[]
+  }
+
+  /**
    * Person without action
    */
   export type PersonDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2359,6 +2573,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     inflows?: boolean | Facility$inflowsArgs<ExtArgs>
+    outflow?: boolean | Facility$outflowArgs<ExtArgs>
     _count?: boolean | FacilityCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["facility"]>
 
@@ -2374,6 +2589,7 @@ export namespace Prisma {
 
   export type FacilityInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     inflows?: boolean | Facility$inflowsArgs<ExtArgs>
+    outflow?: boolean | Facility$outflowArgs<ExtArgs>
     _count?: boolean | FacilityCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FacilityIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2382,6 +2598,7 @@ export namespace Prisma {
     name: "Facility"
     objects: {
       inflows: Prisma.$InflowPayload<ExtArgs>[]
+      outflow: Prisma.$OutflowPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: number
@@ -2751,6 +2968,7 @@ export namespace Prisma {
   export interface Prisma__FacilityClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     inflows<T extends Facility$inflowsArgs<ExtArgs> = {}>(args?: Subset<T, Facility$inflowsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InflowPayload<ExtArgs>, T, "findMany"> | Null>
+    outflow<T extends Facility$outflowArgs<ExtArgs> = {}>(args?: Subset<T, Facility$outflowArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "findMany"> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3111,6 +3329,26 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: InflowScalarFieldEnum | InflowScalarFieldEnum[]
+  }
+
+  /**
+   * Facility.outflow
+   */
+  export type Facility$outflowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    where?: OutflowWhereInput
+    orderBy?: OutflowOrderByWithRelationInput | OutflowOrderByWithRelationInput[]
+    cursor?: OutflowWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: OutflowScalarFieldEnum | OutflowScalarFieldEnum[]
   }
 
   /**
@@ -5114,6 +5352,1899 @@ export namespace Prisma {
 
 
   /**
+   * Model Outflow
+   */
+
+  export type AggregateOutflow = {
+    _count: OutflowCountAggregateOutputType | null
+    _avg: OutflowAvgAggregateOutputType | null
+    _sum: OutflowSumAggregateOutputType | null
+    _min: OutflowMinAggregateOutputType | null
+    _max: OutflowMaxAggregateOutputType | null
+  }
+
+  export type OutflowAvgAggregateOutputType = {
+    id: number | null
+    amount: number | null
+    personId: number | null
+    facilityId: number | null
+  }
+
+  export type OutflowSumAggregateOutputType = {
+    id: number | null
+    amount: number | null
+    personId: number | null
+    facilityId: number | null
+  }
+
+  export type OutflowMinAggregateOutputType = {
+    id: number | null
+    amount: number | null
+    date: Date | null
+    description: string | null
+    personId: number | null
+    facilityId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type OutflowMaxAggregateOutputType = {
+    id: number | null
+    amount: number | null
+    date: Date | null
+    description: string | null
+    personId: number | null
+    facilityId: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type OutflowCountAggregateOutputType = {
+    id: number
+    amount: number
+    date: number
+    description: number
+    personId: number
+    facilityId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type OutflowAvgAggregateInputType = {
+    id?: true
+    amount?: true
+    personId?: true
+    facilityId?: true
+  }
+
+  export type OutflowSumAggregateInputType = {
+    id?: true
+    amount?: true
+    personId?: true
+    facilityId?: true
+  }
+
+  export type OutflowMinAggregateInputType = {
+    id?: true
+    amount?: true
+    date?: true
+    description?: true
+    personId?: true
+    facilityId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type OutflowMaxAggregateInputType = {
+    id?: true
+    amount?: true
+    date?: true
+    description?: true
+    personId?: true
+    facilityId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type OutflowCountAggregateInputType = {
+    id?: true
+    amount?: true
+    date?: true
+    description?: true
+    personId?: true
+    facilityId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type OutflowAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Outflow to aggregate.
+     */
+    where?: OutflowWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Outflows to fetch.
+     */
+    orderBy?: OutflowOrderByWithRelationInput | OutflowOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: OutflowWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Outflows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Outflows.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Outflows
+    **/
+    _count?: true | OutflowCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: OutflowAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: OutflowSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: OutflowMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: OutflowMaxAggregateInputType
+  }
+
+  export type GetOutflowAggregateType<T extends OutflowAggregateArgs> = {
+        [P in keyof T & keyof AggregateOutflow]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateOutflow[P]>
+      : GetScalarType<T[P], AggregateOutflow[P]>
+  }
+
+
+
+
+  export type OutflowGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: OutflowWhereInput
+    orderBy?: OutflowOrderByWithAggregationInput | OutflowOrderByWithAggregationInput[]
+    by: OutflowScalarFieldEnum[] | OutflowScalarFieldEnum
+    having?: OutflowScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: OutflowCountAggregateInputType | true
+    _avg?: OutflowAvgAggregateInputType
+    _sum?: OutflowSumAggregateInputType
+    _min?: OutflowMinAggregateInputType
+    _max?: OutflowMaxAggregateInputType
+  }
+
+  export type OutflowGroupByOutputType = {
+    id: number
+    amount: number
+    date: Date
+    description: string | null
+    personId: number
+    facilityId: number
+    createdAt: Date
+    updatedAt: Date
+    _count: OutflowCountAggregateOutputType | null
+    _avg: OutflowAvgAggregateOutputType | null
+    _sum: OutflowSumAggregateOutputType | null
+    _min: OutflowMinAggregateOutputType | null
+    _max: OutflowMaxAggregateOutputType | null
+  }
+
+  type GetOutflowGroupByPayload<T extends OutflowGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<OutflowGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof OutflowGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], OutflowGroupByOutputType[P]>
+            : GetScalarType<T[P], OutflowGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type OutflowSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    amount?: boolean
+    date?: boolean
+    description?: boolean
+    personId?: boolean
+    facilityId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    person?: boolean | PersonDefaultArgs<ExtArgs>
+    facility?: boolean | FacilityDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["outflow"]>
+
+  export type OutflowSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    amount?: boolean
+    date?: boolean
+    description?: boolean
+    personId?: boolean
+    facilityId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    person?: boolean | PersonDefaultArgs<ExtArgs>
+    facility?: boolean | FacilityDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["outflow"]>
+
+  export type OutflowSelectScalar = {
+    id?: boolean
+    amount?: boolean
+    date?: boolean
+    description?: boolean
+    personId?: boolean
+    facilityId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type OutflowInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    person?: boolean | PersonDefaultArgs<ExtArgs>
+    facility?: boolean | FacilityDefaultArgs<ExtArgs>
+  }
+  export type OutflowIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    person?: boolean | PersonDefaultArgs<ExtArgs>
+    facility?: boolean | FacilityDefaultArgs<ExtArgs>
+  }
+
+  export type $OutflowPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Outflow"
+    objects: {
+      person: Prisma.$PersonPayload<ExtArgs>
+      facility: Prisma.$FacilityPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      amount: number
+      date: Date
+      description: string | null
+      personId: number
+      facilityId: number
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["outflow"]>
+    composites: {}
+  }
+
+  type OutflowGetPayload<S extends boolean | null | undefined | OutflowDefaultArgs> = $Result.GetResult<Prisma.$OutflowPayload, S>
+
+  type OutflowCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<OutflowFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: OutflowCountAggregateInputType | true
+    }
+
+  export interface OutflowDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Outflow'], meta: { name: 'Outflow' } }
+    /**
+     * Find zero or one Outflow that matches the filter.
+     * @param {OutflowFindUniqueArgs} args - Arguments to find a Outflow
+     * @example
+     * // Get one Outflow
+     * const outflow = await prisma.outflow.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends OutflowFindUniqueArgs>(args: SelectSubset<T, OutflowFindUniqueArgs<ExtArgs>>): Prisma__OutflowClient<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one Outflow that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {OutflowFindUniqueOrThrowArgs} args - Arguments to find a Outflow
+     * @example
+     * // Get one Outflow
+     * const outflow = await prisma.outflow.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends OutflowFindUniqueOrThrowArgs>(args: SelectSubset<T, OutflowFindUniqueOrThrowArgs<ExtArgs>>): Prisma__OutflowClient<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first Outflow that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutflowFindFirstArgs} args - Arguments to find a Outflow
+     * @example
+     * // Get one Outflow
+     * const outflow = await prisma.outflow.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends OutflowFindFirstArgs>(args?: SelectSubset<T, OutflowFindFirstArgs<ExtArgs>>): Prisma__OutflowClient<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first Outflow that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutflowFindFirstOrThrowArgs} args - Arguments to find a Outflow
+     * @example
+     * // Get one Outflow
+     * const outflow = await prisma.outflow.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends OutflowFindFirstOrThrowArgs>(args?: SelectSubset<T, OutflowFindFirstOrThrowArgs<ExtArgs>>): Prisma__OutflowClient<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more Outflows that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutflowFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Outflows
+     * const outflows = await prisma.outflow.findMany()
+     * 
+     * // Get first 10 Outflows
+     * const outflows = await prisma.outflow.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const outflowWithIdOnly = await prisma.outflow.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends OutflowFindManyArgs>(args?: SelectSubset<T, OutflowFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a Outflow.
+     * @param {OutflowCreateArgs} args - Arguments to create a Outflow.
+     * @example
+     * // Create one Outflow
+     * const Outflow = await prisma.outflow.create({
+     *   data: {
+     *     // ... data to create a Outflow
+     *   }
+     * })
+     * 
+     */
+    create<T extends OutflowCreateArgs>(args: SelectSubset<T, OutflowCreateArgs<ExtArgs>>): Prisma__OutflowClient<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many Outflows.
+     * @param {OutflowCreateManyArgs} args - Arguments to create many Outflows.
+     * @example
+     * // Create many Outflows
+     * const outflow = await prisma.outflow.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends OutflowCreateManyArgs>(args?: SelectSubset<T, OutflowCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Outflows and returns the data saved in the database.
+     * @param {OutflowCreateManyAndReturnArgs} args - Arguments to create many Outflows.
+     * @example
+     * // Create many Outflows
+     * const outflow = await prisma.outflow.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Outflows and only return the `id`
+     * const outflowWithIdOnly = await prisma.outflow.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends OutflowCreateManyAndReturnArgs>(args?: SelectSubset<T, OutflowCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a Outflow.
+     * @param {OutflowDeleteArgs} args - Arguments to delete one Outflow.
+     * @example
+     * // Delete one Outflow
+     * const Outflow = await prisma.outflow.delete({
+     *   where: {
+     *     // ... filter to delete one Outflow
+     *   }
+     * })
+     * 
+     */
+    delete<T extends OutflowDeleteArgs>(args: SelectSubset<T, OutflowDeleteArgs<ExtArgs>>): Prisma__OutflowClient<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one Outflow.
+     * @param {OutflowUpdateArgs} args - Arguments to update one Outflow.
+     * @example
+     * // Update one Outflow
+     * const outflow = await prisma.outflow.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends OutflowUpdateArgs>(args: SelectSubset<T, OutflowUpdateArgs<ExtArgs>>): Prisma__OutflowClient<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more Outflows.
+     * @param {OutflowDeleteManyArgs} args - Arguments to filter Outflows to delete.
+     * @example
+     * // Delete a few Outflows
+     * const { count } = await prisma.outflow.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends OutflowDeleteManyArgs>(args?: SelectSubset<T, OutflowDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Outflows.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutflowUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Outflows
+     * const outflow = await prisma.outflow.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends OutflowUpdateManyArgs>(args: SelectSubset<T, OutflowUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one Outflow.
+     * @param {OutflowUpsertArgs} args - Arguments to update or create a Outflow.
+     * @example
+     * // Update or create a Outflow
+     * const outflow = await prisma.outflow.upsert({
+     *   create: {
+     *     // ... data to create a Outflow
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Outflow we want to update
+     *   }
+     * })
+     */
+    upsert<T extends OutflowUpsertArgs>(args: SelectSubset<T, OutflowUpsertArgs<ExtArgs>>): Prisma__OutflowClient<$Result.GetResult<Prisma.$OutflowPayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of Outflows.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutflowCountArgs} args - Arguments to filter Outflows to count.
+     * @example
+     * // Count the number of Outflows
+     * const count = await prisma.outflow.count({
+     *   where: {
+     *     // ... the filter for the Outflows we want to count
+     *   }
+     * })
+    **/
+    count<T extends OutflowCountArgs>(
+      args?: Subset<T, OutflowCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], OutflowCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Outflow.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutflowAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends OutflowAggregateArgs>(args: Subset<T, OutflowAggregateArgs>): Prisma.PrismaPromise<GetOutflowAggregateType<T>>
+
+    /**
+     * Group by Outflow.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {OutflowGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends OutflowGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: OutflowGroupByArgs['orderBy'] }
+        : { orderBy?: OutflowGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, OutflowGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetOutflowGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Outflow model
+   */
+  readonly fields: OutflowFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Outflow.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__OutflowClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    person<T extends PersonDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PersonDefaultArgs<ExtArgs>>): Prisma__PersonClient<$Result.GetResult<Prisma.$PersonPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    facility<T extends FacilityDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FacilityDefaultArgs<ExtArgs>>): Prisma__FacilityClient<$Result.GetResult<Prisma.$FacilityPayload<ExtArgs>, T, "findUniqueOrThrow"> | Null, Null, ExtArgs>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Outflow model
+   */ 
+  interface OutflowFieldRefs {
+    readonly id: FieldRef<"Outflow", 'Int'>
+    readonly amount: FieldRef<"Outflow", 'Float'>
+    readonly date: FieldRef<"Outflow", 'DateTime'>
+    readonly description: FieldRef<"Outflow", 'String'>
+    readonly personId: FieldRef<"Outflow", 'Int'>
+    readonly facilityId: FieldRef<"Outflow", 'Int'>
+    readonly createdAt: FieldRef<"Outflow", 'DateTime'>
+    readonly updatedAt: FieldRef<"Outflow", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Outflow findUnique
+   */
+  export type OutflowFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    /**
+     * Filter, which Outflow to fetch.
+     */
+    where: OutflowWhereUniqueInput
+  }
+
+  /**
+   * Outflow findUniqueOrThrow
+   */
+  export type OutflowFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    /**
+     * Filter, which Outflow to fetch.
+     */
+    where: OutflowWhereUniqueInput
+  }
+
+  /**
+   * Outflow findFirst
+   */
+  export type OutflowFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    /**
+     * Filter, which Outflow to fetch.
+     */
+    where?: OutflowWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Outflows to fetch.
+     */
+    orderBy?: OutflowOrderByWithRelationInput | OutflowOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Outflows.
+     */
+    cursor?: OutflowWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Outflows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Outflows.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Outflows.
+     */
+    distinct?: OutflowScalarFieldEnum | OutflowScalarFieldEnum[]
+  }
+
+  /**
+   * Outflow findFirstOrThrow
+   */
+  export type OutflowFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    /**
+     * Filter, which Outflow to fetch.
+     */
+    where?: OutflowWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Outflows to fetch.
+     */
+    orderBy?: OutflowOrderByWithRelationInput | OutflowOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Outflows.
+     */
+    cursor?: OutflowWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Outflows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Outflows.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Outflows.
+     */
+    distinct?: OutflowScalarFieldEnum | OutflowScalarFieldEnum[]
+  }
+
+  /**
+   * Outflow findMany
+   */
+  export type OutflowFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    /**
+     * Filter, which Outflows to fetch.
+     */
+    where?: OutflowWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Outflows to fetch.
+     */
+    orderBy?: OutflowOrderByWithRelationInput | OutflowOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Outflows.
+     */
+    cursor?: OutflowWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Outflows from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Outflows.
+     */
+    skip?: number
+    distinct?: OutflowScalarFieldEnum | OutflowScalarFieldEnum[]
+  }
+
+  /**
+   * Outflow create
+   */
+  export type OutflowCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Outflow.
+     */
+    data: XOR<OutflowCreateInput, OutflowUncheckedCreateInput>
+  }
+
+  /**
+   * Outflow createMany
+   */
+  export type OutflowCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Outflows.
+     */
+    data: OutflowCreateManyInput | OutflowCreateManyInput[]
+  }
+
+  /**
+   * Outflow createManyAndReturn
+   */
+  export type OutflowCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many Outflows.
+     */
+    data: OutflowCreateManyInput | OutflowCreateManyInput[]
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Outflow update
+   */
+  export type OutflowUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Outflow.
+     */
+    data: XOR<OutflowUpdateInput, OutflowUncheckedUpdateInput>
+    /**
+     * Choose, which Outflow to update.
+     */
+    where: OutflowWhereUniqueInput
+  }
+
+  /**
+   * Outflow updateMany
+   */
+  export type OutflowUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Outflows.
+     */
+    data: XOR<OutflowUpdateManyMutationInput, OutflowUncheckedUpdateManyInput>
+    /**
+     * Filter which Outflows to update
+     */
+    where?: OutflowWhereInput
+  }
+
+  /**
+   * Outflow upsert
+   */
+  export type OutflowUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Outflow to update in case it exists.
+     */
+    where: OutflowWhereUniqueInput
+    /**
+     * In case the Outflow found by the `where` argument doesn't exist, create a new Outflow with this data.
+     */
+    create: XOR<OutflowCreateInput, OutflowUncheckedCreateInput>
+    /**
+     * In case the Outflow was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<OutflowUpdateInput, OutflowUncheckedUpdateInput>
+  }
+
+  /**
+   * Outflow delete
+   */
+  export type OutflowDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+    /**
+     * Filter which Outflow to delete.
+     */
+    where: OutflowWhereUniqueInput
+  }
+
+  /**
+   * Outflow deleteMany
+   */
+  export type OutflowDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Outflows to delete
+     */
+    where?: OutflowWhereInput
+  }
+
+  /**
+   * Outflow without action
+   */
+  export type OutflowDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Outflow
+     */
+    select?: OutflowSelect<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: OutflowInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model DocumentType
+   */
+
+  export type AggregateDocumentType = {
+    _count: DocumentTypeCountAggregateOutputType | null
+    _avg: DocumentTypeAvgAggregateOutputType | null
+    _sum: DocumentTypeSumAggregateOutputType | null
+    _min: DocumentTypeMinAggregateOutputType | null
+    _max: DocumentTypeMaxAggregateOutputType | null
+  }
+
+  export type DocumentTypeAvgAggregateOutputType = {
+    id: number | null
+  }
+
+  export type DocumentTypeSumAggregateOutputType = {
+    id: number | null
+  }
+
+  export type DocumentTypeMinAggregateOutputType = {
+    id: number | null
+    name: string | null
+  }
+
+  export type DocumentTypeMaxAggregateOutputType = {
+    id: number | null
+    name: string | null
+  }
+
+  export type DocumentTypeCountAggregateOutputType = {
+    id: number
+    name: number
+    _all: number
+  }
+
+
+  export type DocumentTypeAvgAggregateInputType = {
+    id?: true
+  }
+
+  export type DocumentTypeSumAggregateInputType = {
+    id?: true
+  }
+
+  export type DocumentTypeMinAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type DocumentTypeMaxAggregateInputType = {
+    id?: true
+    name?: true
+  }
+
+  export type DocumentTypeCountAggregateInputType = {
+    id?: true
+    name?: true
+    _all?: true
+  }
+
+  export type DocumentTypeAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DocumentType to aggregate.
+     */
+    where?: DocumentTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DocumentTypes to fetch.
+     */
+    orderBy?: DocumentTypeOrderByWithRelationInput | DocumentTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: DocumentTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DocumentTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DocumentTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned DocumentTypes
+    **/
+    _count?: true | DocumentTypeCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: DocumentTypeAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: DocumentTypeSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: DocumentTypeMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: DocumentTypeMaxAggregateInputType
+  }
+
+  export type GetDocumentTypeAggregateType<T extends DocumentTypeAggregateArgs> = {
+        [P in keyof T & keyof AggregateDocumentType]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateDocumentType[P]>
+      : GetScalarType<T[P], AggregateDocumentType[P]>
+  }
+
+
+
+
+  export type DocumentTypeGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DocumentTypeWhereInput
+    orderBy?: DocumentTypeOrderByWithAggregationInput | DocumentTypeOrderByWithAggregationInput[]
+    by: DocumentTypeScalarFieldEnum[] | DocumentTypeScalarFieldEnum
+    having?: DocumentTypeScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: DocumentTypeCountAggregateInputType | true
+    _avg?: DocumentTypeAvgAggregateInputType
+    _sum?: DocumentTypeSumAggregateInputType
+    _min?: DocumentTypeMinAggregateInputType
+    _max?: DocumentTypeMaxAggregateInputType
+  }
+
+  export type DocumentTypeGroupByOutputType = {
+    id: number
+    name: string
+    _count: DocumentTypeCountAggregateOutputType | null
+    _avg: DocumentTypeAvgAggregateOutputType | null
+    _sum: DocumentTypeSumAggregateOutputType | null
+    _min: DocumentTypeMinAggregateOutputType | null
+    _max: DocumentTypeMaxAggregateOutputType | null
+  }
+
+  type GetDocumentTypeGroupByPayload<T extends DocumentTypeGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<DocumentTypeGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof DocumentTypeGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], DocumentTypeGroupByOutputType[P]>
+            : GetScalarType<T[P], DocumentTypeGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type DocumentTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["documentType"]>
+
+  export type DocumentTypeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+  }, ExtArgs["result"]["documentType"]>
+
+  export type DocumentTypeSelectScalar = {
+    id?: boolean
+    name?: boolean
+  }
+
+
+  export type $DocumentTypePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "DocumentType"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: number
+      name: string
+    }, ExtArgs["result"]["documentType"]>
+    composites: {}
+  }
+
+  type DocumentTypeGetPayload<S extends boolean | null | undefined | DocumentTypeDefaultArgs> = $Result.GetResult<Prisma.$DocumentTypePayload, S>
+
+  type DocumentTypeCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = 
+    Omit<DocumentTypeFindManyArgs, 'select' | 'include' | 'distinct'> & {
+      select?: DocumentTypeCountAggregateInputType | true
+    }
+
+  export interface DocumentTypeDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['DocumentType'], meta: { name: 'DocumentType' } }
+    /**
+     * Find zero or one DocumentType that matches the filter.
+     * @param {DocumentTypeFindUniqueArgs} args - Arguments to find a DocumentType
+     * @example
+     * // Get one DocumentType
+     * const documentType = await prisma.documentType.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DocumentTypeFindUniqueArgs>(args: SelectSubset<T, DocumentTypeFindUniqueArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findUnique"> | null, null, ExtArgs>
+
+    /**
+     * Find one DocumentType that matches the filter or throw an error with `error.code='P2025'` 
+     * if no matches were found.
+     * @param {DocumentTypeFindUniqueOrThrowArgs} args - Arguments to find a DocumentType
+     * @example
+     * // Get one DocumentType
+     * const documentType = await prisma.documentType.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DocumentTypeFindUniqueOrThrowArgs>(args: SelectSubset<T, DocumentTypeFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findUniqueOrThrow">, never, ExtArgs>
+
+    /**
+     * Find the first DocumentType that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeFindFirstArgs} args - Arguments to find a DocumentType
+     * @example
+     * // Get one DocumentType
+     * const documentType = await prisma.documentType.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DocumentTypeFindFirstArgs>(args?: SelectSubset<T, DocumentTypeFindFirstArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findFirst"> | null, null, ExtArgs>
+
+    /**
+     * Find the first DocumentType that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeFindFirstOrThrowArgs} args - Arguments to find a DocumentType
+     * @example
+     * // Get one DocumentType
+     * const documentType = await prisma.documentType.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DocumentTypeFindFirstOrThrowArgs>(args?: SelectSubset<T, DocumentTypeFindFirstOrThrowArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findFirstOrThrow">, never, ExtArgs>
+
+    /**
+     * Find zero or more DocumentTypes that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DocumentTypes
+     * const documentTypes = await prisma.documentType.findMany()
+     * 
+     * // Get first 10 DocumentTypes
+     * const documentTypes = await prisma.documentType.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const documentTypeWithIdOnly = await prisma.documentType.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends DocumentTypeFindManyArgs>(args?: SelectSubset<T, DocumentTypeFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "findMany">>
+
+    /**
+     * Create a DocumentType.
+     * @param {DocumentTypeCreateArgs} args - Arguments to create a DocumentType.
+     * @example
+     * // Create one DocumentType
+     * const DocumentType = await prisma.documentType.create({
+     *   data: {
+     *     // ... data to create a DocumentType
+     *   }
+     * })
+     * 
+     */
+    create<T extends DocumentTypeCreateArgs>(args: SelectSubset<T, DocumentTypeCreateArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "create">, never, ExtArgs>
+
+    /**
+     * Create many DocumentTypes.
+     * @param {DocumentTypeCreateManyArgs} args - Arguments to create many DocumentTypes.
+     * @example
+     * // Create many DocumentTypes
+     * const documentType = await prisma.documentType.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends DocumentTypeCreateManyArgs>(args?: SelectSubset<T, DocumentTypeCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many DocumentTypes and returns the data saved in the database.
+     * @param {DocumentTypeCreateManyAndReturnArgs} args - Arguments to create many DocumentTypes.
+     * @example
+     * // Create many DocumentTypes
+     * const documentType = await prisma.documentType.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many DocumentTypes and only return the `id`
+     * const documentTypeWithIdOnly = await prisma.documentType.createManyAndReturn({ 
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends DocumentTypeCreateManyAndReturnArgs>(args?: SelectSubset<T, DocumentTypeCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "createManyAndReturn">>
+
+    /**
+     * Delete a DocumentType.
+     * @param {DocumentTypeDeleteArgs} args - Arguments to delete one DocumentType.
+     * @example
+     * // Delete one DocumentType
+     * const DocumentType = await prisma.documentType.delete({
+     *   where: {
+     *     // ... filter to delete one DocumentType
+     *   }
+     * })
+     * 
+     */
+    delete<T extends DocumentTypeDeleteArgs>(args: SelectSubset<T, DocumentTypeDeleteArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "delete">, never, ExtArgs>
+
+    /**
+     * Update one DocumentType.
+     * @param {DocumentTypeUpdateArgs} args - Arguments to update one DocumentType.
+     * @example
+     * // Update one DocumentType
+     * const documentType = await prisma.documentType.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends DocumentTypeUpdateArgs>(args: SelectSubset<T, DocumentTypeUpdateArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "update">, never, ExtArgs>
+
+    /**
+     * Delete zero or more DocumentTypes.
+     * @param {DocumentTypeDeleteManyArgs} args - Arguments to filter DocumentTypes to delete.
+     * @example
+     * // Delete a few DocumentTypes
+     * const { count } = await prisma.documentType.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends DocumentTypeDeleteManyArgs>(args?: SelectSubset<T, DocumentTypeDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more DocumentTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DocumentTypes
+     * const documentType = await prisma.documentType.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends DocumentTypeUpdateManyArgs>(args: SelectSubset<T, DocumentTypeUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create or update one DocumentType.
+     * @param {DocumentTypeUpsertArgs} args - Arguments to update or create a DocumentType.
+     * @example
+     * // Update or create a DocumentType
+     * const documentType = await prisma.documentType.upsert({
+     *   create: {
+     *     // ... data to create a DocumentType
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DocumentType we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DocumentTypeUpsertArgs>(args: SelectSubset<T, DocumentTypeUpsertArgs<ExtArgs>>): Prisma__DocumentTypeClient<$Result.GetResult<Prisma.$DocumentTypePayload<ExtArgs>, T, "upsert">, never, ExtArgs>
+
+
+    /**
+     * Count the number of DocumentTypes.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeCountArgs} args - Arguments to filter DocumentTypes to count.
+     * @example
+     * // Count the number of DocumentTypes
+     * const count = await prisma.documentType.count({
+     *   where: {
+     *     // ... the filter for the DocumentTypes we want to count
+     *   }
+     * })
+    **/
+    count<T extends DocumentTypeCountArgs>(
+      args?: Subset<T, DocumentTypeCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], DocumentTypeCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a DocumentType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DocumentTypeAggregateArgs>(args: Subset<T, DocumentTypeAggregateArgs>): Prisma.PrismaPromise<GetDocumentTypeAggregateType<T>>
+
+    /**
+     * Group by DocumentType.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DocumentTypeGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends DocumentTypeGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: DocumentTypeGroupByArgs['orderBy'] }
+        : { orderBy?: DocumentTypeGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, DocumentTypeGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDocumentTypeGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the DocumentType model
+   */
+  readonly fields: DocumentTypeFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for DocumentType.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__DocumentTypeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the DocumentType model
+   */ 
+  interface DocumentTypeFieldRefs {
+    readonly id: FieldRef<"DocumentType", 'Int'>
+    readonly name: FieldRef<"DocumentType", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * DocumentType findUnique
+   */
+  export type DocumentTypeFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Filter, which DocumentType to fetch.
+     */
+    where: DocumentTypeWhereUniqueInput
+  }
+
+  /**
+   * DocumentType findUniqueOrThrow
+   */
+  export type DocumentTypeFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Filter, which DocumentType to fetch.
+     */
+    where: DocumentTypeWhereUniqueInput
+  }
+
+  /**
+   * DocumentType findFirst
+   */
+  export type DocumentTypeFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Filter, which DocumentType to fetch.
+     */
+    where?: DocumentTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DocumentTypes to fetch.
+     */
+    orderBy?: DocumentTypeOrderByWithRelationInput | DocumentTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DocumentTypes.
+     */
+    cursor?: DocumentTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DocumentTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DocumentTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DocumentTypes.
+     */
+    distinct?: DocumentTypeScalarFieldEnum | DocumentTypeScalarFieldEnum[]
+  }
+
+  /**
+   * DocumentType findFirstOrThrow
+   */
+  export type DocumentTypeFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Filter, which DocumentType to fetch.
+     */
+    where?: DocumentTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DocumentTypes to fetch.
+     */
+    orderBy?: DocumentTypeOrderByWithRelationInput | DocumentTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for DocumentTypes.
+     */
+    cursor?: DocumentTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DocumentTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DocumentTypes.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of DocumentTypes.
+     */
+    distinct?: DocumentTypeScalarFieldEnum | DocumentTypeScalarFieldEnum[]
+  }
+
+  /**
+   * DocumentType findMany
+   */
+  export type DocumentTypeFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Filter, which DocumentTypes to fetch.
+     */
+    where?: DocumentTypeWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of DocumentTypes to fetch.
+     */
+    orderBy?: DocumentTypeOrderByWithRelationInput | DocumentTypeOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing DocumentTypes.
+     */
+    cursor?: DocumentTypeWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` DocumentTypes from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` DocumentTypes.
+     */
+    skip?: number
+    distinct?: DocumentTypeScalarFieldEnum | DocumentTypeScalarFieldEnum[]
+  }
+
+  /**
+   * DocumentType create
+   */
+  export type DocumentTypeCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * The data needed to create a DocumentType.
+     */
+    data: XOR<DocumentTypeCreateInput, DocumentTypeUncheckedCreateInput>
+  }
+
+  /**
+   * DocumentType createMany
+   */
+  export type DocumentTypeCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DocumentTypes.
+     */
+    data: DocumentTypeCreateManyInput | DocumentTypeCreateManyInput[]
+  }
+
+  /**
+   * DocumentType createManyAndReturn
+   */
+  export type DocumentTypeCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * The data used to create many DocumentTypes.
+     */
+    data: DocumentTypeCreateManyInput | DocumentTypeCreateManyInput[]
+  }
+
+  /**
+   * DocumentType update
+   */
+  export type DocumentTypeUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * The data needed to update a DocumentType.
+     */
+    data: XOR<DocumentTypeUpdateInput, DocumentTypeUncheckedUpdateInput>
+    /**
+     * Choose, which DocumentType to update.
+     */
+    where: DocumentTypeWhereUniqueInput
+  }
+
+  /**
+   * DocumentType updateMany
+   */
+  export type DocumentTypeUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DocumentTypes.
+     */
+    data: XOR<DocumentTypeUpdateManyMutationInput, DocumentTypeUncheckedUpdateManyInput>
+    /**
+     * Filter which DocumentTypes to update
+     */
+    where?: DocumentTypeWhereInput
+  }
+
+  /**
+   * DocumentType upsert
+   */
+  export type DocumentTypeUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * The filter to search for the DocumentType to update in case it exists.
+     */
+    where: DocumentTypeWhereUniqueInput
+    /**
+     * In case the DocumentType found by the `where` argument doesn't exist, create a new DocumentType with this data.
+     */
+    create: XOR<DocumentTypeCreateInput, DocumentTypeUncheckedCreateInput>
+    /**
+     * In case the DocumentType was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DocumentTypeUpdateInput, DocumentTypeUncheckedUpdateInput>
+  }
+
+  /**
+   * DocumentType delete
+   */
+  export type DocumentTypeDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+    /**
+     * Filter which DocumentType to delete.
+     */
+    where: DocumentTypeWhereUniqueInput
+  }
+
+  /**
+   * DocumentType deleteMany
+   */
+  export type DocumentTypeDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which DocumentTypes to delete
+     */
+    where?: DocumentTypeWhereInput
+  }
+
+  /**
+   * DocumentType without action
+   */
+  export type DocumentTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DocumentType
+     */
+    select?: DocumentTypeSelect<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -5126,8 +7257,8 @@ export namespace Prisma {
 
   export const PersonScalarFieldEnum: {
     id: 'id',
-    email: 'email',
-    name: 'name'
+    name: 'name',
+    email: 'email'
   };
 
   export type PersonScalarFieldEnum = (typeof PersonScalarFieldEnum)[keyof typeof PersonScalarFieldEnum]
@@ -5162,6 +7293,28 @@ export namespace Prisma {
   };
 
   export type InflowScalarFieldEnum = (typeof InflowScalarFieldEnum)[keyof typeof InflowScalarFieldEnum]
+
+
+  export const OutflowScalarFieldEnum: {
+    id: 'id',
+    amount: 'amount',
+    date: 'date',
+    description: 'description',
+    personId: 'personId',
+    facilityId: 'facilityId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type OutflowScalarFieldEnum = (typeof OutflowScalarFieldEnum)[keyof typeof OutflowScalarFieldEnum]
+
+
+  export const DocumentTypeScalarFieldEnum: {
+    id: 'id',
+    name: 'name'
+  };
+
+  export type DocumentTypeScalarFieldEnum = (typeof DocumentTypeScalarFieldEnum)[keyof typeof DocumentTypeScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -5221,32 +7374,35 @@ export namespace Prisma {
     OR?: PersonWhereInput[]
     NOT?: PersonWhereInput | PersonWhereInput[]
     id?: IntFilter<"Person"> | number
-    email?: StringFilter<"Person"> | string
-    name?: StringNullableFilter<"Person"> | string | null
+    name?: StringFilter<"Person"> | string
+    email?: StringNullableFilter<"Person"> | string | null
     inflows?: InflowListRelationFilter
+    outflows?: OutflowListRelationFilter
   }
 
   export type PersonOrderByWithRelationInput = {
     id?: SortOrder
-    email?: SortOrder
-    name?: SortOrderInput | SortOrder
+    name?: SortOrder
+    email?: SortOrderInput | SortOrder
     inflows?: InflowOrderByRelationAggregateInput
+    outflows?: OutflowOrderByRelationAggregateInput
   }
 
   export type PersonWhereUniqueInput = Prisma.AtLeast<{
     id?: number
+    name?: string
     email?: string
     AND?: PersonWhereInput | PersonWhereInput[]
     OR?: PersonWhereInput[]
     NOT?: PersonWhereInput | PersonWhereInput[]
-    name?: StringNullableFilter<"Person"> | string | null
     inflows?: InflowListRelationFilter
-  }, "id" | "email">
+    outflows?: OutflowListRelationFilter
+  }, "id" | "name" | "email">
 
   export type PersonOrderByWithAggregationInput = {
     id?: SortOrder
-    email?: SortOrder
-    name?: SortOrderInput | SortOrder
+    name?: SortOrder
+    email?: SortOrderInput | SortOrder
     _count?: PersonCountOrderByAggregateInput
     _avg?: PersonAvgOrderByAggregateInput
     _max?: PersonMaxOrderByAggregateInput
@@ -5259,8 +7415,8 @@ export namespace Prisma {
     OR?: PersonScalarWhereWithAggregatesInput[]
     NOT?: PersonScalarWhereWithAggregatesInput | PersonScalarWhereWithAggregatesInput[]
     id?: IntWithAggregatesFilter<"Person"> | number
-    email?: StringWithAggregatesFilter<"Person"> | string
-    name?: StringNullableWithAggregatesFilter<"Person"> | string | null
+    name?: StringWithAggregatesFilter<"Person"> | string
+    email?: StringNullableWithAggregatesFilter<"Person"> | string | null
   }
 
   export type FacilityWhereInput = {
@@ -5270,12 +7426,14 @@ export namespace Prisma {
     id?: IntFilter<"Facility"> | number
     name?: StringFilter<"Facility"> | string
     inflows?: InflowListRelationFilter
+    outflow?: OutflowListRelationFilter
   }
 
   export type FacilityOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     inflows?: InflowOrderByRelationAggregateInput
+    outflow?: OutflowOrderByRelationAggregateInput
   }
 
   export type FacilityWhereUniqueInput = Prisma.AtLeast<{
@@ -5285,6 +7443,7 @@ export namespace Prisma {
     OR?: FacilityWhereInput[]
     NOT?: FacilityWhereInput | FacilityWhereInput[]
     inflows?: InflowListRelationFilter
+    outflow?: OutflowListRelationFilter
   }, "id" | "name">
 
   export type FacilityOrderByWithAggregationInput = {
@@ -5430,69 +7589,191 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Inflow"> | Date | string
   }
 
+  export type OutflowWhereInput = {
+    AND?: OutflowWhereInput | OutflowWhereInput[]
+    OR?: OutflowWhereInput[]
+    NOT?: OutflowWhereInput | OutflowWhereInput[]
+    id?: IntFilter<"Outflow"> | number
+    amount?: FloatFilter<"Outflow"> | number
+    date?: DateTimeFilter<"Outflow"> | Date | string
+    description?: StringNullableFilter<"Outflow"> | string | null
+    personId?: IntFilter<"Outflow"> | number
+    facilityId?: IntFilter<"Outflow"> | number
+    createdAt?: DateTimeFilter<"Outflow"> | Date | string
+    updatedAt?: DateTimeFilter<"Outflow"> | Date | string
+    person?: XOR<PersonRelationFilter, PersonWhereInput>
+    facility?: XOR<FacilityRelationFilter, FacilityWhereInput>
+  }
+
+  export type OutflowOrderByWithRelationInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    date?: SortOrder
+    description?: SortOrderInput | SortOrder
+    personId?: SortOrder
+    facilityId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    person?: PersonOrderByWithRelationInput
+    facility?: FacilityOrderByWithRelationInput
+  }
+
+  export type OutflowWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    AND?: OutflowWhereInput | OutflowWhereInput[]
+    OR?: OutflowWhereInput[]
+    NOT?: OutflowWhereInput | OutflowWhereInput[]
+    amount?: FloatFilter<"Outflow"> | number
+    date?: DateTimeFilter<"Outflow"> | Date | string
+    description?: StringNullableFilter<"Outflow"> | string | null
+    personId?: IntFilter<"Outflow"> | number
+    facilityId?: IntFilter<"Outflow"> | number
+    createdAt?: DateTimeFilter<"Outflow"> | Date | string
+    updatedAt?: DateTimeFilter<"Outflow"> | Date | string
+    person?: XOR<PersonRelationFilter, PersonWhereInput>
+    facility?: XOR<FacilityRelationFilter, FacilityWhereInput>
+  }, "id">
+
+  export type OutflowOrderByWithAggregationInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    date?: SortOrder
+    description?: SortOrderInput | SortOrder
+    personId?: SortOrder
+    facilityId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: OutflowCountOrderByAggregateInput
+    _avg?: OutflowAvgOrderByAggregateInput
+    _max?: OutflowMaxOrderByAggregateInput
+    _min?: OutflowMinOrderByAggregateInput
+    _sum?: OutflowSumOrderByAggregateInput
+  }
+
+  export type OutflowScalarWhereWithAggregatesInput = {
+    AND?: OutflowScalarWhereWithAggregatesInput | OutflowScalarWhereWithAggregatesInput[]
+    OR?: OutflowScalarWhereWithAggregatesInput[]
+    NOT?: OutflowScalarWhereWithAggregatesInput | OutflowScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"Outflow"> | number
+    amount?: FloatWithAggregatesFilter<"Outflow"> | number
+    date?: DateTimeWithAggregatesFilter<"Outflow"> | Date | string
+    description?: StringNullableWithAggregatesFilter<"Outflow"> | string | null
+    personId?: IntWithAggregatesFilter<"Outflow"> | number
+    facilityId?: IntWithAggregatesFilter<"Outflow"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Outflow"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Outflow"> | Date | string
+  }
+
+  export type DocumentTypeWhereInput = {
+    AND?: DocumentTypeWhereInput | DocumentTypeWhereInput[]
+    OR?: DocumentTypeWhereInput[]
+    NOT?: DocumentTypeWhereInput | DocumentTypeWhereInput[]
+    id?: IntFilter<"DocumentType"> | number
+    name?: StringFilter<"DocumentType"> | string
+  }
+
+  export type DocumentTypeOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type DocumentTypeWhereUniqueInput = Prisma.AtLeast<{
+    id?: number
+    name?: string
+    AND?: DocumentTypeWhereInput | DocumentTypeWhereInput[]
+    OR?: DocumentTypeWhereInput[]
+    NOT?: DocumentTypeWhereInput | DocumentTypeWhereInput[]
+  }, "id" | "name">
+
+  export type DocumentTypeOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    _count?: DocumentTypeCountOrderByAggregateInput
+    _avg?: DocumentTypeAvgOrderByAggregateInput
+    _max?: DocumentTypeMaxOrderByAggregateInput
+    _min?: DocumentTypeMinOrderByAggregateInput
+    _sum?: DocumentTypeSumOrderByAggregateInput
+  }
+
+  export type DocumentTypeScalarWhereWithAggregatesInput = {
+    AND?: DocumentTypeScalarWhereWithAggregatesInput | DocumentTypeScalarWhereWithAggregatesInput[]
+    OR?: DocumentTypeScalarWhereWithAggregatesInput[]
+    NOT?: DocumentTypeScalarWhereWithAggregatesInput | DocumentTypeScalarWhereWithAggregatesInput[]
+    id?: IntWithAggregatesFilter<"DocumentType"> | number
+    name?: StringWithAggregatesFilter<"DocumentType"> | string
+  }
+
   export type PersonCreateInput = {
-    email: string
-    name?: string | null
+    name: string
+    email?: string | null
     inflows?: InflowCreateNestedManyWithoutPersonInput
+    outflows?: OutflowCreateNestedManyWithoutPersonInput
   }
 
   export type PersonUncheckedCreateInput = {
     id?: number
-    email: string
-    name?: string | null
+    name: string
+    email?: string | null
     inflows?: InflowUncheckedCreateNestedManyWithoutPersonInput
+    outflows?: OutflowUncheckedCreateNestedManyWithoutPersonInput
   }
 
   export type PersonUpdateInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     inflows?: InflowUpdateManyWithoutPersonNestedInput
+    outflows?: OutflowUpdateManyWithoutPersonNestedInput
   }
 
   export type PersonUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     inflows?: InflowUncheckedUpdateManyWithoutPersonNestedInput
+    outflows?: OutflowUncheckedUpdateManyWithoutPersonNestedInput
   }
 
   export type PersonCreateManyInput = {
     id?: number
-    email: string
-    name?: string | null
+    name: string
+    email?: string | null
   }
 
   export type PersonUpdateManyMutationInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type PersonUncheckedUpdateManyInput = {
     id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
   export type FacilityCreateInput = {
     name: string
     inflows?: InflowCreateNestedManyWithoutFacilityInput
+    outflow?: OutflowCreateNestedManyWithoutFacilityInput
   }
 
   export type FacilityUncheckedCreateInput = {
     id?: number
     name: string
     inflows?: InflowUncheckedCreateNestedManyWithoutFacilityInput
+    outflow?: OutflowUncheckedCreateNestedManyWithoutFacilityInput
   }
 
   export type FacilityUpdateInput = {
     name?: StringFieldUpdateOperationsInput | string
     inflows?: InflowUpdateManyWithoutFacilityNestedInput
+    outflow?: OutflowUpdateManyWithoutFacilityNestedInput
   }
 
   export type FacilityUncheckedUpdateInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
     inflows?: InflowUncheckedUpdateManyWithoutFacilityNestedInput
+    outflow?: OutflowUncheckedUpdateManyWithoutFacilityNestedInput
   }
 
   export type FacilityCreateManyInput = {
@@ -5623,6 +7904,110 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type OutflowCreateInput = {
+    amount: number
+    date: Date | string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    person: PersonCreateNestedOneWithoutOutflowsInput
+    facility: FacilityCreateNestedOneWithoutOutflowInput
+  }
+
+  export type OutflowUncheckedCreateInput = {
+    id?: number
+    amount: number
+    date: Date | string
+    description?: string | null
+    personId: number
+    facilityId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutflowUpdateInput = {
+    amount?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    person?: PersonUpdateOneRequiredWithoutOutflowsNestedInput
+    facility?: FacilityUpdateOneRequiredWithoutOutflowNestedInput
+  }
+
+  export type OutflowUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    personId?: IntFieldUpdateOperationsInput | number
+    facilityId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutflowCreateManyInput = {
+    id?: number
+    amount: number
+    date: Date | string
+    description?: string | null
+    personId: number
+    facilityId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutflowUpdateManyMutationInput = {
+    amount?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutflowUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    personId?: IntFieldUpdateOperationsInput | number
+    facilityId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DocumentTypeCreateInput = {
+    name: string
+  }
+
+  export type DocumentTypeUncheckedCreateInput = {
+    id?: number
+    name: string
+  }
+
+  export type DocumentTypeUpdateInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DocumentTypeUncheckedUpdateInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DocumentTypeCreateManyInput = {
+    id?: number
+    name: string
+  }
+
+  export type DocumentTypeUpdateManyMutationInput = {
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
+  export type DocumentTypeUncheckedUpdateManyInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+  }
+
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[]
@@ -5668,6 +8053,12 @@ export namespace Prisma {
     none?: InflowWhereInput
   }
 
+  export type OutflowListRelationFilter = {
+    every?: OutflowWhereInput
+    some?: OutflowWhereInput
+    none?: OutflowWhereInput
+  }
+
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
@@ -5677,10 +8068,14 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type OutflowOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type PersonCountOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
     name?: SortOrder
+    email?: SortOrder
   }
 
   export type PersonAvgOrderByAggregateInput = {
@@ -5689,14 +8084,14 @@ export namespace Prisma {
 
   export type PersonMaxOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
     name?: SortOrder
+    email?: SortOrder
   }
 
   export type PersonMinOrderByAggregateInput = {
     id?: SortOrder
-    email?: SortOrder
     name?: SortOrder
+    email?: SortOrder
   }
 
   export type PersonSumOrderByAggregateInput = {
@@ -5918,6 +8313,76 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
+  export type OutflowCountOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    personId?: SortOrder
+    facilityId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OutflowAvgOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    personId?: SortOrder
+    facilityId?: SortOrder
+  }
+
+  export type OutflowMaxOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    personId?: SortOrder
+    facilityId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OutflowMinOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    personId?: SortOrder
+    facilityId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type OutflowSumOrderByAggregateInput = {
+    id?: SortOrder
+    amount?: SortOrder
+    personId?: SortOrder
+    facilityId?: SortOrder
+  }
+
+  export type DocumentTypeCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type DocumentTypeAvgOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
+  export type DocumentTypeMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type DocumentTypeMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+  }
+
+  export type DocumentTypeSumOrderByAggregateInput = {
+    id?: SortOrder
+  }
+
   export type InflowCreateNestedManyWithoutPersonInput = {
     create?: XOR<InflowCreateWithoutPersonInput, InflowUncheckedCreateWithoutPersonInput> | InflowCreateWithoutPersonInput[] | InflowUncheckedCreateWithoutPersonInput[]
     connectOrCreate?: InflowCreateOrConnectWithoutPersonInput | InflowCreateOrConnectWithoutPersonInput[]
@@ -5925,11 +8390,25 @@ export namespace Prisma {
     connect?: InflowWhereUniqueInput | InflowWhereUniqueInput[]
   }
 
+  export type OutflowCreateNestedManyWithoutPersonInput = {
+    create?: XOR<OutflowCreateWithoutPersonInput, OutflowUncheckedCreateWithoutPersonInput> | OutflowCreateWithoutPersonInput[] | OutflowUncheckedCreateWithoutPersonInput[]
+    connectOrCreate?: OutflowCreateOrConnectWithoutPersonInput | OutflowCreateOrConnectWithoutPersonInput[]
+    createMany?: OutflowCreateManyPersonInputEnvelope
+    connect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+  }
+
   export type InflowUncheckedCreateNestedManyWithoutPersonInput = {
     create?: XOR<InflowCreateWithoutPersonInput, InflowUncheckedCreateWithoutPersonInput> | InflowCreateWithoutPersonInput[] | InflowUncheckedCreateWithoutPersonInput[]
     connectOrCreate?: InflowCreateOrConnectWithoutPersonInput | InflowCreateOrConnectWithoutPersonInput[]
     createMany?: InflowCreateManyPersonInputEnvelope
     connect?: InflowWhereUniqueInput | InflowWhereUniqueInput[]
+  }
+
+  export type OutflowUncheckedCreateNestedManyWithoutPersonInput = {
+    create?: XOR<OutflowCreateWithoutPersonInput, OutflowUncheckedCreateWithoutPersonInput> | OutflowCreateWithoutPersonInput[] | OutflowUncheckedCreateWithoutPersonInput[]
+    connectOrCreate?: OutflowCreateOrConnectWithoutPersonInput | OutflowCreateOrConnectWithoutPersonInput[]
+    createMany?: OutflowCreateManyPersonInputEnvelope
+    connect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -5954,6 +8433,20 @@ export namespace Prisma {
     deleteMany?: InflowScalarWhereInput | InflowScalarWhereInput[]
   }
 
+  export type OutflowUpdateManyWithoutPersonNestedInput = {
+    create?: XOR<OutflowCreateWithoutPersonInput, OutflowUncheckedCreateWithoutPersonInput> | OutflowCreateWithoutPersonInput[] | OutflowUncheckedCreateWithoutPersonInput[]
+    connectOrCreate?: OutflowCreateOrConnectWithoutPersonInput | OutflowCreateOrConnectWithoutPersonInput[]
+    upsert?: OutflowUpsertWithWhereUniqueWithoutPersonInput | OutflowUpsertWithWhereUniqueWithoutPersonInput[]
+    createMany?: OutflowCreateManyPersonInputEnvelope
+    set?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    disconnect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    delete?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    connect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    update?: OutflowUpdateWithWhereUniqueWithoutPersonInput | OutflowUpdateWithWhereUniqueWithoutPersonInput[]
+    updateMany?: OutflowUpdateManyWithWhereWithoutPersonInput | OutflowUpdateManyWithWhereWithoutPersonInput[]
+    deleteMany?: OutflowScalarWhereInput | OutflowScalarWhereInput[]
+  }
+
   export type IntFieldUpdateOperationsInput = {
     set?: number
     increment?: number
@@ -5976,6 +8469,20 @@ export namespace Prisma {
     deleteMany?: InflowScalarWhereInput | InflowScalarWhereInput[]
   }
 
+  export type OutflowUncheckedUpdateManyWithoutPersonNestedInput = {
+    create?: XOR<OutflowCreateWithoutPersonInput, OutflowUncheckedCreateWithoutPersonInput> | OutflowCreateWithoutPersonInput[] | OutflowUncheckedCreateWithoutPersonInput[]
+    connectOrCreate?: OutflowCreateOrConnectWithoutPersonInput | OutflowCreateOrConnectWithoutPersonInput[]
+    upsert?: OutflowUpsertWithWhereUniqueWithoutPersonInput | OutflowUpsertWithWhereUniqueWithoutPersonInput[]
+    createMany?: OutflowCreateManyPersonInputEnvelope
+    set?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    disconnect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    delete?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    connect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    update?: OutflowUpdateWithWhereUniqueWithoutPersonInput | OutflowUpdateWithWhereUniqueWithoutPersonInput[]
+    updateMany?: OutflowUpdateManyWithWhereWithoutPersonInput | OutflowUpdateManyWithWhereWithoutPersonInput[]
+    deleteMany?: OutflowScalarWhereInput | OutflowScalarWhereInput[]
+  }
+
   export type InflowCreateNestedManyWithoutFacilityInput = {
     create?: XOR<InflowCreateWithoutFacilityInput, InflowUncheckedCreateWithoutFacilityInput> | InflowCreateWithoutFacilityInput[] | InflowUncheckedCreateWithoutFacilityInput[]
     connectOrCreate?: InflowCreateOrConnectWithoutFacilityInput | InflowCreateOrConnectWithoutFacilityInput[]
@@ -5983,11 +8490,25 @@ export namespace Prisma {
     connect?: InflowWhereUniqueInput | InflowWhereUniqueInput[]
   }
 
+  export type OutflowCreateNestedManyWithoutFacilityInput = {
+    create?: XOR<OutflowCreateWithoutFacilityInput, OutflowUncheckedCreateWithoutFacilityInput> | OutflowCreateWithoutFacilityInput[] | OutflowUncheckedCreateWithoutFacilityInput[]
+    connectOrCreate?: OutflowCreateOrConnectWithoutFacilityInput | OutflowCreateOrConnectWithoutFacilityInput[]
+    createMany?: OutflowCreateManyFacilityInputEnvelope
+    connect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+  }
+
   export type InflowUncheckedCreateNestedManyWithoutFacilityInput = {
     create?: XOR<InflowCreateWithoutFacilityInput, InflowUncheckedCreateWithoutFacilityInput> | InflowCreateWithoutFacilityInput[] | InflowUncheckedCreateWithoutFacilityInput[]
     connectOrCreate?: InflowCreateOrConnectWithoutFacilityInput | InflowCreateOrConnectWithoutFacilityInput[]
     createMany?: InflowCreateManyFacilityInputEnvelope
     connect?: InflowWhereUniqueInput | InflowWhereUniqueInput[]
+  }
+
+  export type OutflowUncheckedCreateNestedManyWithoutFacilityInput = {
+    create?: XOR<OutflowCreateWithoutFacilityInput, OutflowUncheckedCreateWithoutFacilityInput> | OutflowCreateWithoutFacilityInput[] | OutflowUncheckedCreateWithoutFacilityInput[]
+    connectOrCreate?: OutflowCreateOrConnectWithoutFacilityInput | OutflowCreateOrConnectWithoutFacilityInput[]
+    createMany?: OutflowCreateManyFacilityInputEnvelope
+    connect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
   }
 
   export type InflowUpdateManyWithoutFacilityNestedInput = {
@@ -6004,6 +8525,20 @@ export namespace Prisma {
     deleteMany?: InflowScalarWhereInput | InflowScalarWhereInput[]
   }
 
+  export type OutflowUpdateManyWithoutFacilityNestedInput = {
+    create?: XOR<OutflowCreateWithoutFacilityInput, OutflowUncheckedCreateWithoutFacilityInput> | OutflowCreateWithoutFacilityInput[] | OutflowUncheckedCreateWithoutFacilityInput[]
+    connectOrCreate?: OutflowCreateOrConnectWithoutFacilityInput | OutflowCreateOrConnectWithoutFacilityInput[]
+    upsert?: OutflowUpsertWithWhereUniqueWithoutFacilityInput | OutflowUpsertWithWhereUniqueWithoutFacilityInput[]
+    createMany?: OutflowCreateManyFacilityInputEnvelope
+    set?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    disconnect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    delete?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    connect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    update?: OutflowUpdateWithWhereUniqueWithoutFacilityInput | OutflowUpdateWithWhereUniqueWithoutFacilityInput[]
+    updateMany?: OutflowUpdateManyWithWhereWithoutFacilityInput | OutflowUpdateManyWithWhereWithoutFacilityInput[]
+    deleteMany?: OutflowScalarWhereInput | OutflowScalarWhereInput[]
+  }
+
   export type InflowUncheckedUpdateManyWithoutFacilityNestedInput = {
     create?: XOR<InflowCreateWithoutFacilityInput, InflowUncheckedCreateWithoutFacilityInput> | InflowCreateWithoutFacilityInput[] | InflowUncheckedCreateWithoutFacilityInput[]
     connectOrCreate?: InflowCreateOrConnectWithoutFacilityInput | InflowCreateOrConnectWithoutFacilityInput[]
@@ -6016,6 +8551,20 @@ export namespace Prisma {
     update?: InflowUpdateWithWhereUniqueWithoutFacilityInput | InflowUpdateWithWhereUniqueWithoutFacilityInput[]
     updateMany?: InflowUpdateManyWithWhereWithoutFacilityInput | InflowUpdateManyWithWhereWithoutFacilityInput[]
     deleteMany?: InflowScalarWhereInput | InflowScalarWhereInput[]
+  }
+
+  export type OutflowUncheckedUpdateManyWithoutFacilityNestedInput = {
+    create?: XOR<OutflowCreateWithoutFacilityInput, OutflowUncheckedCreateWithoutFacilityInput> | OutflowCreateWithoutFacilityInput[] | OutflowUncheckedCreateWithoutFacilityInput[]
+    connectOrCreate?: OutflowCreateOrConnectWithoutFacilityInput | OutflowCreateOrConnectWithoutFacilityInput[]
+    upsert?: OutflowUpsertWithWhereUniqueWithoutFacilityInput | OutflowUpsertWithWhereUniqueWithoutFacilityInput[]
+    createMany?: OutflowCreateManyFacilityInputEnvelope
+    set?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    disconnect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    delete?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    connect?: OutflowWhereUniqueInput | OutflowWhereUniqueInput[]
+    update?: OutflowUpdateWithWhereUniqueWithoutFacilityInput | OutflowUpdateWithWhereUniqueWithoutFacilityInput[]
+    updateMany?: OutflowUpdateManyWithWhereWithoutFacilityInput | OutflowUpdateManyWithWhereWithoutFacilityInput[]
+    deleteMany?: OutflowScalarWhereInput | OutflowScalarWhereInput[]
   }
 
   export type InflowCreateNestedManyWithoutJobInput = {
@@ -6112,6 +8661,34 @@ export namespace Prisma {
     upsert?: JobUpsertWithoutInflowsInput
     connect?: JobWhereUniqueInput
     update?: XOR<XOR<JobUpdateToOneWithWhereWithoutInflowsInput, JobUpdateWithoutInflowsInput>, JobUncheckedUpdateWithoutInflowsInput>
+  }
+
+  export type PersonCreateNestedOneWithoutOutflowsInput = {
+    create?: XOR<PersonCreateWithoutOutflowsInput, PersonUncheckedCreateWithoutOutflowsInput>
+    connectOrCreate?: PersonCreateOrConnectWithoutOutflowsInput
+    connect?: PersonWhereUniqueInput
+  }
+
+  export type FacilityCreateNestedOneWithoutOutflowInput = {
+    create?: XOR<FacilityCreateWithoutOutflowInput, FacilityUncheckedCreateWithoutOutflowInput>
+    connectOrCreate?: FacilityCreateOrConnectWithoutOutflowInput
+    connect?: FacilityWhereUniqueInput
+  }
+
+  export type PersonUpdateOneRequiredWithoutOutflowsNestedInput = {
+    create?: XOR<PersonCreateWithoutOutflowsInput, PersonUncheckedCreateWithoutOutflowsInput>
+    connectOrCreate?: PersonCreateOrConnectWithoutOutflowsInput
+    upsert?: PersonUpsertWithoutOutflowsInput
+    connect?: PersonWhereUniqueInput
+    update?: XOR<XOR<PersonUpdateToOneWithWhereWithoutOutflowsInput, PersonUpdateWithoutOutflowsInput>, PersonUncheckedUpdateWithoutOutflowsInput>
+  }
+
+  export type FacilityUpdateOneRequiredWithoutOutflowNestedInput = {
+    create?: XOR<FacilityCreateWithoutOutflowInput, FacilityUncheckedCreateWithoutOutflowInput>
+    connectOrCreate?: FacilityCreateOrConnectWithoutOutflowInput
+    upsert?: FacilityUpsertWithoutOutflowInput
+    connect?: FacilityWhereUniqueInput
+    update?: XOR<XOR<FacilityUpdateToOneWithWhereWithoutOutflowInput, FacilityUpdateWithoutOutflowInput>, FacilityUncheckedUpdateWithoutOutflowInput>
   }
 
   export type NestedIntFilter<$PrismaModel = never> = {
@@ -6296,6 +8873,34 @@ export namespace Prisma {
     data: InflowCreateManyPersonInput | InflowCreateManyPersonInput[]
   }
 
+  export type OutflowCreateWithoutPersonInput = {
+    amount: number
+    date: Date | string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    facility: FacilityCreateNestedOneWithoutOutflowInput
+  }
+
+  export type OutflowUncheckedCreateWithoutPersonInput = {
+    id?: number
+    amount: number
+    date: Date | string
+    description?: string | null
+    facilityId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutflowCreateOrConnectWithoutPersonInput = {
+    where: OutflowWhereUniqueInput
+    create: XOR<OutflowCreateWithoutPersonInput, OutflowUncheckedCreateWithoutPersonInput>
+  }
+
+  export type OutflowCreateManyPersonInputEnvelope = {
+    data: OutflowCreateManyPersonInput | OutflowCreateManyPersonInput[]
+  }
+
   export type InflowUpsertWithWhereUniqueWithoutPersonInput = {
     where: InflowWhereUniqueInput
     update: XOR<InflowUpdateWithoutPersonInput, InflowUncheckedUpdateWithoutPersonInput>
@@ -6325,6 +8930,36 @@ export namespace Prisma {
     jobId?: IntFilter<"Inflow"> | number
     createdAt?: DateTimeFilter<"Inflow"> | Date | string
     updatedAt?: DateTimeFilter<"Inflow"> | Date | string
+  }
+
+  export type OutflowUpsertWithWhereUniqueWithoutPersonInput = {
+    where: OutflowWhereUniqueInput
+    update: XOR<OutflowUpdateWithoutPersonInput, OutflowUncheckedUpdateWithoutPersonInput>
+    create: XOR<OutflowCreateWithoutPersonInput, OutflowUncheckedCreateWithoutPersonInput>
+  }
+
+  export type OutflowUpdateWithWhereUniqueWithoutPersonInput = {
+    where: OutflowWhereUniqueInput
+    data: XOR<OutflowUpdateWithoutPersonInput, OutflowUncheckedUpdateWithoutPersonInput>
+  }
+
+  export type OutflowUpdateManyWithWhereWithoutPersonInput = {
+    where: OutflowScalarWhereInput
+    data: XOR<OutflowUpdateManyMutationInput, OutflowUncheckedUpdateManyWithoutPersonInput>
+  }
+
+  export type OutflowScalarWhereInput = {
+    AND?: OutflowScalarWhereInput | OutflowScalarWhereInput[]
+    OR?: OutflowScalarWhereInput[]
+    NOT?: OutflowScalarWhereInput | OutflowScalarWhereInput[]
+    id?: IntFilter<"Outflow"> | number
+    amount?: FloatFilter<"Outflow"> | number
+    date?: DateTimeFilter<"Outflow"> | Date | string
+    description?: StringNullableFilter<"Outflow"> | string | null
+    personId?: IntFilter<"Outflow"> | number
+    facilityId?: IntFilter<"Outflow"> | number
+    createdAt?: DateTimeFilter<"Outflow"> | Date | string
+    updatedAt?: DateTimeFilter<"Outflow"> | Date | string
   }
 
   export type InflowCreateWithoutFacilityInput = {
@@ -6357,6 +8992,34 @@ export namespace Prisma {
     data: InflowCreateManyFacilityInput | InflowCreateManyFacilityInput[]
   }
 
+  export type OutflowCreateWithoutFacilityInput = {
+    amount: number
+    date: Date | string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    person: PersonCreateNestedOneWithoutOutflowsInput
+  }
+
+  export type OutflowUncheckedCreateWithoutFacilityInput = {
+    id?: number
+    amount: number
+    date: Date | string
+    description?: string | null
+    personId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutflowCreateOrConnectWithoutFacilityInput = {
+    where: OutflowWhereUniqueInput
+    create: XOR<OutflowCreateWithoutFacilityInput, OutflowUncheckedCreateWithoutFacilityInput>
+  }
+
+  export type OutflowCreateManyFacilityInputEnvelope = {
+    data: OutflowCreateManyFacilityInput | OutflowCreateManyFacilityInput[]
+  }
+
   export type InflowUpsertWithWhereUniqueWithoutFacilityInput = {
     where: InflowWhereUniqueInput
     update: XOR<InflowUpdateWithoutFacilityInput, InflowUncheckedUpdateWithoutFacilityInput>
@@ -6371,6 +9034,22 @@ export namespace Prisma {
   export type InflowUpdateManyWithWhereWithoutFacilityInput = {
     where: InflowScalarWhereInput
     data: XOR<InflowUpdateManyMutationInput, InflowUncheckedUpdateManyWithoutFacilityInput>
+  }
+
+  export type OutflowUpsertWithWhereUniqueWithoutFacilityInput = {
+    where: OutflowWhereUniqueInput
+    update: XOR<OutflowUpdateWithoutFacilityInput, OutflowUncheckedUpdateWithoutFacilityInput>
+    create: XOR<OutflowCreateWithoutFacilityInput, OutflowUncheckedCreateWithoutFacilityInput>
+  }
+
+  export type OutflowUpdateWithWhereUniqueWithoutFacilityInput = {
+    where: OutflowWhereUniqueInput
+    data: XOR<OutflowUpdateWithoutFacilityInput, OutflowUncheckedUpdateWithoutFacilityInput>
+  }
+
+  export type OutflowUpdateManyWithWhereWithoutFacilityInput = {
+    where: OutflowScalarWhereInput
+    data: XOR<OutflowUpdateManyMutationInput, OutflowUncheckedUpdateManyWithoutFacilityInput>
   }
 
   export type InflowCreateWithoutJobInput = {
@@ -6420,14 +9099,16 @@ export namespace Prisma {
   }
 
   export type PersonCreateWithoutInflowsInput = {
-    email: string
-    name?: string | null
+    name: string
+    email?: string | null
+    outflows?: OutflowCreateNestedManyWithoutPersonInput
   }
 
   export type PersonUncheckedCreateWithoutInflowsInput = {
     id?: number
-    email: string
-    name?: string | null
+    name: string
+    email?: string | null
+    outflows?: OutflowUncheckedCreateNestedManyWithoutPersonInput
   }
 
   export type PersonCreateOrConnectWithoutInflowsInput = {
@@ -6437,11 +9118,13 @@ export namespace Prisma {
 
   export type FacilityCreateWithoutInflowsInput = {
     name: string
+    outflow?: OutflowCreateNestedManyWithoutFacilityInput
   }
 
   export type FacilityUncheckedCreateWithoutInflowsInput = {
     id?: number
     name: string
+    outflow?: OutflowUncheckedCreateNestedManyWithoutFacilityInput
   }
 
   export type FacilityCreateOrConnectWithoutInflowsInput = {
@@ -6475,14 +9158,16 @@ export namespace Prisma {
   }
 
   export type PersonUpdateWithoutInflowsInput = {
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    outflows?: OutflowUpdateManyWithoutPersonNestedInput
   }
 
   export type PersonUncheckedUpdateWithoutInflowsInput = {
     id?: IntFieldUpdateOperationsInput | number
-    email?: StringFieldUpdateOperationsInput | string
-    name?: NullableStringFieldUpdateOperationsInput | string | null
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    outflows?: OutflowUncheckedUpdateManyWithoutPersonNestedInput
   }
 
   export type FacilityUpsertWithoutInflowsInput = {
@@ -6498,11 +9183,13 @@ export namespace Prisma {
 
   export type FacilityUpdateWithoutInflowsInput = {
     name?: StringFieldUpdateOperationsInput | string
+    outflow?: OutflowUpdateManyWithoutFacilityNestedInput
   }
 
   export type FacilityUncheckedUpdateWithoutInflowsInput = {
     id?: IntFieldUpdateOperationsInput | number
     name?: StringFieldUpdateOperationsInput | string
+    outflow?: OutflowUncheckedUpdateManyWithoutFacilityNestedInput
   }
 
   export type JobUpsertWithoutInflowsInput = {
@@ -6525,6 +9212,86 @@ export namespace Prisma {
     name?: StringFieldUpdateOperationsInput | string
   }
 
+  export type PersonCreateWithoutOutflowsInput = {
+    name: string
+    email?: string | null
+    inflows?: InflowCreateNestedManyWithoutPersonInput
+  }
+
+  export type PersonUncheckedCreateWithoutOutflowsInput = {
+    id?: number
+    name: string
+    email?: string | null
+    inflows?: InflowUncheckedCreateNestedManyWithoutPersonInput
+  }
+
+  export type PersonCreateOrConnectWithoutOutflowsInput = {
+    where: PersonWhereUniqueInput
+    create: XOR<PersonCreateWithoutOutflowsInput, PersonUncheckedCreateWithoutOutflowsInput>
+  }
+
+  export type FacilityCreateWithoutOutflowInput = {
+    name: string
+    inflows?: InflowCreateNestedManyWithoutFacilityInput
+  }
+
+  export type FacilityUncheckedCreateWithoutOutflowInput = {
+    id?: number
+    name: string
+    inflows?: InflowUncheckedCreateNestedManyWithoutFacilityInput
+  }
+
+  export type FacilityCreateOrConnectWithoutOutflowInput = {
+    where: FacilityWhereUniqueInput
+    create: XOR<FacilityCreateWithoutOutflowInput, FacilityUncheckedCreateWithoutOutflowInput>
+  }
+
+  export type PersonUpsertWithoutOutflowsInput = {
+    update: XOR<PersonUpdateWithoutOutflowsInput, PersonUncheckedUpdateWithoutOutflowsInput>
+    create: XOR<PersonCreateWithoutOutflowsInput, PersonUncheckedCreateWithoutOutflowsInput>
+    where?: PersonWhereInput
+  }
+
+  export type PersonUpdateToOneWithWhereWithoutOutflowsInput = {
+    where?: PersonWhereInput
+    data: XOR<PersonUpdateWithoutOutflowsInput, PersonUncheckedUpdateWithoutOutflowsInput>
+  }
+
+  export type PersonUpdateWithoutOutflowsInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    inflows?: InflowUpdateManyWithoutPersonNestedInput
+  }
+
+  export type PersonUncheckedUpdateWithoutOutflowsInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    inflows?: InflowUncheckedUpdateManyWithoutPersonNestedInput
+  }
+
+  export type FacilityUpsertWithoutOutflowInput = {
+    update: XOR<FacilityUpdateWithoutOutflowInput, FacilityUncheckedUpdateWithoutOutflowInput>
+    create: XOR<FacilityCreateWithoutOutflowInput, FacilityUncheckedCreateWithoutOutflowInput>
+    where?: FacilityWhereInput
+  }
+
+  export type FacilityUpdateToOneWithWhereWithoutOutflowInput = {
+    where?: FacilityWhereInput
+    data: XOR<FacilityUpdateWithoutOutflowInput, FacilityUncheckedUpdateWithoutOutflowInput>
+  }
+
+  export type FacilityUpdateWithoutOutflowInput = {
+    name?: StringFieldUpdateOperationsInput | string
+    inflows?: InflowUpdateManyWithoutFacilityNestedInput
+  }
+
+  export type FacilityUncheckedUpdateWithoutOutflowInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    name?: StringFieldUpdateOperationsInput | string
+    inflows?: InflowUncheckedUpdateManyWithoutFacilityNestedInput
+  }
+
   export type InflowCreateManyPersonInput = {
     id?: number
     amount: number
@@ -6532,6 +9299,16 @@ export namespace Prisma {
     description?: string | null
     facilityId: number
     jobId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutflowCreateManyPersonInput = {
+    id?: number
+    amount: number
+    date: Date | string
+    description?: string | null
+    facilityId: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -6568,6 +9345,35 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type OutflowUpdateWithoutPersonInput = {
+    amount?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    facility?: FacilityUpdateOneRequiredWithoutOutflowNestedInput
+  }
+
+  export type OutflowUncheckedUpdateWithoutPersonInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    facilityId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutflowUncheckedUpdateManyWithoutPersonInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    facilityId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
   export type InflowCreateManyFacilityInput = {
     id?: number
     amount: number
@@ -6575,6 +9381,16 @@ export namespace Prisma {
     description?: string | null
     personId: number
     jobId: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type OutflowCreateManyFacilityInput = {
+    id?: number
+    amount: number
+    date: Date | string
+    description?: string | null
+    personId: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -6607,6 +9423,35 @@ export namespace Prisma {
     description?: NullableStringFieldUpdateOperationsInput | string | null
     personId?: IntFieldUpdateOperationsInput | number
     jobId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutflowUpdateWithoutFacilityInput = {
+    amount?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    person?: PersonUpdateOneRequiredWithoutOutflowsNestedInput
+  }
+
+  export type OutflowUncheckedUpdateWithoutFacilityInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    personId?: IntFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type OutflowUncheckedUpdateManyWithoutFacilityInput = {
+    id?: IntFieldUpdateOperationsInput | number
+    amount?: FloatFieldUpdateOperationsInput | number
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    personId?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -6687,6 +9532,14 @@ export namespace Prisma {
      * @deprecated Use InflowDefaultArgs instead
      */
     export type InflowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = InflowDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use OutflowDefaultArgs instead
+     */
+    export type OutflowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = OutflowDefaultArgs<ExtArgs>
+    /**
+     * @deprecated Use DocumentTypeDefaultArgs instead
+     */
+    export type DocumentTypeArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = DocumentTypeDefaultArgs<ExtArgs>
 
   /**
    * Batch Payload for updateMany & deleteMany & createMany

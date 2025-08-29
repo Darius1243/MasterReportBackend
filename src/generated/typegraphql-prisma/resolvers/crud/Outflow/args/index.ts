@@ -1,0 +1,15 @@
+export { AggregateOutflowArgs } from "./AggregateOutflowArgs";
+export { CreateManyAndReturnOutflowArgs } from "./CreateManyAndReturnOutflowArgs";
+export { CreateManyOutflowArgs } from "./CreateManyOutflowArgs";
+export { CreateOneOutflowArgs } from "./CreateOneOutflowArgs";
+export { DeleteManyOutflowArgs } from "./DeleteManyOutflowArgs";
+export { DeleteOneOutflowArgs } from "./DeleteOneOutflowArgs";
+export { FindFirstOutflowArgs } from "./FindFirstOutflowArgs";
+export { FindFirstOutflowOrThrowArgs } from "./FindFirstOutflowOrThrowArgs";
+export { FindManyOutflowArgs } from "./FindManyOutflowArgs";
+export { FindUniqueOutflowArgs } from "./FindUniqueOutflowArgs";
+export { FindUniqueOutflowOrThrowArgs } from "./FindUniqueOutflowOrThrowArgs";
+export { GroupByOutflowArgs } from "./GroupByOutflowArgs";
+export { UpdateManyOutflowArgs } from "./UpdateManyOutflowArgs";
+export { UpdateOneOutflowArgs } from "./UpdateOneOutflowArgs";
+export { UpsertOneOutflowArgs } from "./UpsertOneOutflowArgs";

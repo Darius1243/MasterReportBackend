@@ -4,6 +4,7 @@ import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
 import { InflowListRelationFilter } from "../inputs/InflowListRelationFilter";
 import { IntFilter } from "../inputs/IntFilter";
+import { OutflowListRelationFilter } from "../inputs/OutflowListRelationFilter";
 import { StringFilter } from "../inputs/StringFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 
@@ -32,15 +33,20 @@ export class PersonWhereInput {
   @TypeGraphQL.Field(_type => StringFilter, {
     nullable: true
   })
-  email?: StringFilter | undefined;
+  name?: StringFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringNullableFilter, {
     nullable: true
   })
-  name?: StringNullableFilter | undefined;
+  email?: StringNullableFilter | undefined;
 
   @TypeGraphQL.Field(_type => InflowListRelationFilter, {
     nullable: true
   })
   inflows?: InflowListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => OutflowListRelationFilter, {
+    nullable: true
+  })
+  outflows?: OutflowListRelationFilter | undefined;
 }

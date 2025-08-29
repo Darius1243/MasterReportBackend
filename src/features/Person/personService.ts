@@ -1,15 +1,15 @@
 import prisma from '@config/database'
-import { Inflow, Person, Prisma } from '@generated/prisma' // Added Inflow
-import {
-	PersonCreateInput,
-	PersonUpdateInput,
-} from '@generated/typegraphql-prisma'
+import { Inflow, Outflow, Person, Prisma } from '@generated/prisma'
+import { PersonCreateInput } from '@generated/typegraphql-prisma'
 
-// Define an interface for the data structure returned by getPersonWithStatistics
 export interface PersonWithStatisticsData extends Person {
 	totalInflowAmount: number
-	inflows: Inflow[] // Оставляем для внутреннего использования, если нужно
-	inflowIds: number[] // Добавляем поле для ID приходов
+	inflows: Inflow[]
+	inflowIds: number[]
+
+	totalOutflowAmount: number
+	outflows: Outflow[]
+	outflowIds: number[]
 }
 
 export const personService = {
@@ -18,25 +18,34 @@ export const personService = {
 	},
 
 	async getPersonWithStatistics(): Promise<PersonWithStatisticsData[]> {
-		const personsWithInflows = await prisma.person.findMany({
+		const personsWithInflowsOutflow = await prisma.person.findMany({
 			include: {
 				inflows: true,
-				// outflows: true,
+				outflows: true,
 			},
 		})
 
-		return personsWithInflows.map(person => {
+		return personsWithInflowsOutflow.map(person => {
 			const totalInflowAmount = (person.inflows || []).reduce(
 				(sum, inflow) => sum + inflow.amount,
 				0
 			)
 			const inflowIds = (person.inflows || []).map(inflow => inflow.id)
 
+			const totalOutflowAmount = (person.outflows || []).reduce(
+				(sum, outflow) => sum + outflow.amount,
+				0
+			)
+			const outflowIds = (person.outflows || []).map(outflow => outflow.id)
+
 			return {
 				...person,
 				totalInflowAmount,
 				inflows: person.inflows || [],
 				inflowIds,
+				totalOutflowAmount,
+				outflows: person.outflows || [],
+				outflowIds,
 			}
 		})
 	},
@@ -49,13 +58,23 @@ export const personService = {
 		return prisma.person.create({ data: data as Prisma.PersonCreateInput })
 	},
 
-	async updatePerson(
-		id: number,
-		data: PersonUpdateInput
-	): Promise<Person | null> {
+	async updatePerson(id: number, data: any): Promise<Person | null> {
+		const prismaData: any = {}
+		for (const key in data) {
+			if (
+				typeof data[key] !== 'object' ||
+				data[key] === null ||
+				Array.isArray(data[key])
+			) {
+				prismaData[key] = { set: data[key] }
+			} else {
+				prismaData[key] = data[key]
+			}
+		}
+
 		return prisma.person.update({
 			where: { id },
-			data: data as Prisma.PersonUpdateInput,
+			data: prismaData,
 		})
 	},
 

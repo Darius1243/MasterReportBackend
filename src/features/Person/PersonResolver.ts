@@ -1,8 +1,4 @@
-import {
-	Person,
-	PersonCreateInput,
-	PersonUpdateInput,
-} from '@generated/typegraphql-prisma'
+import { Person, PersonCreateInput } from '@generated/typegraphql-prisma'
 import { handlePrismaError } from '@utils/errors'
 import { UserInputError } from 'apollo-server-express'
 import {
@@ -15,6 +11,7 @@ import {
 	Resolver,
 	Field as TypeGraphQLField,
 } from 'type-graphql'
+import { PersonUpdateSimpleInput } from './Inputs/PersonUpdateSimpleInput'
 import { personService } from './personService'
 
 @ObjectType()
@@ -22,8 +19,14 @@ class PersonWithStatistics extends Person {
 	@TypeGraphQLField(() => Float)
 	totalInflowAmount!: number
 
-	@TypeGraphQLField(() => [Int]) // Добавляем поле для ID приходов
+	@TypeGraphQLField(() => [Int])
 	inflowIds!: number[]
+
+	@TypeGraphQLField(() => Float)
+	totalOutflowAmount!: number
+
+	@TypeGraphQLField(() => [Int])
+	outflowIds!: number[]
 }
 
 @Resolver(Person)
@@ -56,7 +59,7 @@ export class PersonResolver {
 	@Mutation(() => Person, { nullable: true })
 	async updatePerson(
 		@Arg('id', () => Int) id: number,
-		@Arg('data', () => PersonUpdateInput) data: PersonUpdateInput
+		@Arg('data', () => PersonUpdateSimpleInput) data: PersonUpdateSimpleInput
 	): Promise<Person | null> {
 		const hasActualUpdates = Object.values(data).some(
 			value => value !== undefined && value !== null

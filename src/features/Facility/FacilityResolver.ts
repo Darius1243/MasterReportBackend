@@ -1,12 +1,9 @@
-import {
-	Facility,
-	FacilityCreateInput,
-	FacilityUpdateInput,
-} from '@generated/typegraphql-prisma'
+import { Facility, FacilityCreateInput } from '@generated/typegraphql-prisma'
 import { handlePrismaError } from '@utils/errors'
 import { UserInputError } from 'apollo-server-express'
 import { Arg, Int, Mutation, Query, Resolver } from 'type-graphql'
 import { facilityService } from './facilityService'
+import { FacilityUpdateSimpleInput } from './Inputs/FacilityUpdateSimpleInput'
 
 @Resolver(Facility)
 export class FacilityResolver {
@@ -34,7 +31,8 @@ export class FacilityResolver {
 	@Mutation(() => Facility, { nullable: true })
 	async updateFacility(
 		@Arg('id', () => Int) id: number,
-		@Arg('data', () => FacilityUpdateInput) data: FacilityUpdateInput
+		@Arg('data', () => FacilityUpdateSimpleInput)
+		data: FacilityUpdateSimpleInput
 	): Promise<Facility | null> {
 		const hasActualUpdates = Object.values(data).some(
 			value => value !== undefined && value !== null

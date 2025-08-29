@@ -35,5 +35,5 @@ export class FindFirstPersonArgs {
   @TypeGraphQL.Field(_type => [PersonScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "email" | "name"> | undefined;
+  distinct?: Array<"id" | "name" | "email"> | undefined;
 }

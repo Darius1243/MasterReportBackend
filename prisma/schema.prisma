@@ -16,15 +16,17 @@ datasource db {
 
 model Person {
   id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  name  String  @unique
+  email String? @unique
   inflows Inflow[]
+  outflows Outflow[]
 }
 
 model Facility {
   id    Int   @id @default(autoincrement())
   name  String  @unique
   inflows Inflow[]
+  outflow Outflow[]
 }
 
 model Job {
@@ -54,4 +56,33 @@ model Inflow {
   @@index([personId])
   @@index([facilityId])
   @@index([jobId])
+}
+
+model Outflow {
+  id          Int      @id @default(autoincrement())
+  amount      Float
+  date        DateTime
+  description String?
+
+  personId    Int
+  person      Person   @relation(fields: [personId], references: [id])
+
+  facilityId  Int
+  facility    Facility @relation(fields: [facilityId], references: [id])
+
+  documentTypeId Int
+  documentType DocumentType @relation(fields: [documentTypeId], references: [id])
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([personId])
+  @@index([facilityId])
+  @@index([documentTypeId])
+}
+
+model DocumentType {
+  id    Int     @id @default(autoincrement())
+  name  String  @unique
+  outflows Outflow[]
 }

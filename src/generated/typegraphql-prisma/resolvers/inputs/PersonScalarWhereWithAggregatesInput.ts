@@ -31,10 +31,10 @@ export class PersonScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => StringWithAggregatesFilter, {
     nullable: true
   })
-  email?: StringWithAggregatesFilter | undefined;
+  name?: StringWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => StringNullableWithAggregatesFilter, {
     nullable: true
   })
-  name?: StringNullableWithAggregatesFilter | undefined;
+  email?: StringNullableWithAggregatesFilter | undefined;
 }

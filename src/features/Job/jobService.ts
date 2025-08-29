@@ -1,10 +1,6 @@
 import prisma from '@config/database'
-import { Prisma } from '@generated/prisma' // Исправленный импорт
-import {
-	Job,
-	JobCreateInput,
-	JobUpdateInput,
-} from '@generated/typegraphql-prisma'
+import { Job, Prisma } from '@generated/prisma'
+import { JobCreateInput } from '@generated/typegraphql-prisma'
 
 export const jobService = {
 	async getAllJobs(): Promise<Job[]> {
@@ -12,32 +8,36 @@ export const jobService = {
 	},
 
 	async getJobById(id: number): Promise<Job | null> {
-		return prisma.job.findUnique({
-			where: { id },
-		})
+		return prisma.job.findUnique({ where: { id } })
 	},
 
 	async createJob(data: JobCreateInput): Promise<Job> {
-		// Здесь может быть дополнительная логика валидации или обработки данных
-		return prisma.job.create({
-			data: data as Prisma.JobCreateInput,
-		})
+		return prisma.job.create({ data: data as Prisma.JobCreateInput })
 	},
 
-	async updateJob(id: number, data: JobUpdateInput): Promise<Job | null> {
-		// Здесь может быть дополнительная логика валидации или обработки данных
+	async updateJob(id: number, data: any): Promise<Job | null> {
+		const prismaData: any = {}
+
+		for (const key in data) {
+			if (
+				typeof data[key] !== 'object' ||
+				data[key] === null ||
+				Array.isArray(data[key])
+			) {
+				prismaData[key] = { set: data[key] }
+			} else {
+				prismaData[key] = data[key]
+			}
+		}
+
 		return prisma.job.update({
 			where: { id },
-			data: data as Prisma.JobUpdateInput,
+			data: prismaData,
 		})
 	},
 
-	async deleteJob(id: number): Promise<Job | null> {
-		// Здесь может быть дополнительная логика, например, проверка связанных сущностей
-		return prisma.job.delete({
-			where: { id },
-		})
+	async deleteJob(id: number): Promise<boolean> {
+		await prisma.job.delete({ where: { id } })
+		return true
 	},
 }
-
-// Можно добавить более сложные методы, специфичные для бизнес-логики "Job"

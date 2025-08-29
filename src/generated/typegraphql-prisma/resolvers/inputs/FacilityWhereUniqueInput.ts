@@ -4,6 +4,7 @@ import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
 import { FacilityWhereInput } from "../inputs/FacilityWhereInput";
 import { InflowListRelationFilter } from "../inputs/InflowListRelationFilter";
+import { OutflowListRelationFilter } from "../inputs/OutflowListRelationFilter";
 
 @TypeGraphQL.InputType("FacilityWhereUniqueInput", {})
 export class FacilityWhereUniqueInput {
@@ -36,4 +37,9 @@ export class FacilityWhereUniqueInput {
     nullable: true
   })
   inflows?: InflowListRelationFilter | undefined;
+
+  @TypeGraphQL.Field(_type => OutflowListRelationFilter, {
+    nullable: true
+  })
+  outflow?: OutflowListRelationFilter | undefined;
 }

@@ -1,0 +1,15 @@
+export { AggregateDocumentTypeArgs } from "./AggregateDocumentTypeArgs";
+export { CreateManyAndReturnDocumentTypeArgs } from "./CreateManyAndReturnDocumentTypeArgs";
+export { CreateManyDocumentTypeArgs } from "./CreateManyDocumentTypeArgs";
+export { CreateOneDocumentTypeArgs } from "./CreateOneDocumentTypeArgs";
+export { DeleteManyDocumentTypeArgs } from "./DeleteManyDocumentTypeArgs";
+export { DeleteOneDocumentTypeArgs } from "./DeleteOneDocumentTypeArgs";
+export { FindFirstDocumentTypeArgs } from "./FindFirstDocumentTypeArgs";
+export { FindFirstDocumentTypeOrThrowArgs } from "./FindFirstDocumentTypeOrThrowArgs";
+export { FindManyDocumentTypeArgs } from "./FindManyDocumentTypeArgs";
+export { FindUniqueDocumentTypeArgs } from "./FindUniqueDocumentTypeArgs";
+export { FindUniqueDocumentTypeOrThrowArgs } from "./FindUniqueDocumentTypeOrThrowArgs";
+export { GroupByDocumentTypeArgs } from "./GroupByDocumentTypeArgs";
+export { UpdateManyDocumentTypeArgs } from "./UpdateManyDocumentTypeArgs";
+export { UpdateOneDocumentTypeArgs } from "./UpdateOneDocumentTypeArgs";
+export { UpsertOneDocumentTypeArgs } from "./UpsertOneDocumentTypeArgs";

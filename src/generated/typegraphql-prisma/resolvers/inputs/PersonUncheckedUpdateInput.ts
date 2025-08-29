@@ -5,6 +5,7 @@ import { DecimalJSScalar } from "../../scalars";
 import { InflowUncheckedUpdateManyWithoutPersonNestedInput } from "../inputs/InflowUncheckedUpdateManyWithoutPersonNestedInput";
 import { IntFieldUpdateOperationsInput } from "../inputs/IntFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
+import { OutflowUncheckedUpdateManyWithoutPersonNestedInput } from "../inputs/OutflowUncheckedUpdateManyWithoutPersonNestedInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType("PersonUncheckedUpdateInput", {})
@@ -17,15 +18,20 @@ export class PersonUncheckedUpdateInput {
   @TypeGraphQL.Field(_type => StringFieldUpdateOperationsInput, {
     nullable: true
   })
-  email?: StringFieldUpdateOperationsInput | undefined;
+  name?: StringFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => NullableStringFieldUpdateOperationsInput, {
     nullable: true
   })
-  name?: NullableStringFieldUpdateOperationsInput | undefined;
+  email?: NullableStringFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => InflowUncheckedUpdateManyWithoutPersonNestedInput, {
     nullable: true
   })
   inflows?: InflowUncheckedUpdateManyWithoutPersonNestedInput | undefined;
+
+  @TypeGraphQL.Field(_type => OutflowUncheckedUpdateManyWithoutPersonNestedInput, {
+    nullable: true
+  })
+  outflows?: OutflowUncheckedUpdateManyWithoutPersonNestedInput | undefined;
 }
