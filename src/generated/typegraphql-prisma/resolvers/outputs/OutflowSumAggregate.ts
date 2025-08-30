@@ -24,4 +24,9 @@ export class OutflowSumAggregate {
     nullable: true
   })
   facilityId!: number | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  documentTypeId!: number | null;
 }

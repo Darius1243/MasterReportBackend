@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
 import { DocumentTypeWhereInput } from "../inputs/DocumentTypeWhereInput";
+import { OutflowListRelationFilter } from "../inputs/OutflowListRelationFilter";
 
 @TypeGraphQL.InputType("DocumentTypeWhereUniqueInput", {})
 export class DocumentTypeWhereUniqueInput {
@@ -30,4 +31,9 @@ export class DocumentTypeWhereUniqueInput {
     nullable: true
   })
   NOT?: DocumentTypeWhereInput[] | undefined;
+
+  @TypeGraphQL.Field(_type => OutflowListRelationFilter, {
+    nullable: true
+  })
+  outflows?: OutflowListRelationFilter | undefined;
 }

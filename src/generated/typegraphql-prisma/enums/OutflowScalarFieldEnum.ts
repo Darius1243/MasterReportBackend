@@ -7,6 +7,7 @@ export enum OutflowScalarFieldEnum {
   description = "description",
   personId = "personId",
   facilityId = "facilityId",
+  documentTypeId = "documentTypeId",
   createdAt = "createdAt",
   updatedAt = "updatedAt"
 }

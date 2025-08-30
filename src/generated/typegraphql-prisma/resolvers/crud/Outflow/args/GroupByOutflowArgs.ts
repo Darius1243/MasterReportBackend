@@ -20,7 +20,7 @@ export class GroupByOutflowArgs {
   @TypeGraphQL.Field(_type => [OutflowScalarFieldEnum], {
     nullable: false
   })
-  by!: Array<"id" | "amount" | "date" | "description" | "personId" | "facilityId" | "createdAt" | "updatedAt">;
+  by!: Array<"id" | "amount" | "date" | "description" | "personId" | "facilityId" | "documentTypeId" | "createdAt" | "updatedAt">;
 
   @TypeGraphQL.Field(_type => OutflowScalarWhereWithAggregatesInput, {
     nullable: true

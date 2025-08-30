@@ -40,6 +40,11 @@ export class OutflowGroupBy {
   })
   facilityId!: number;
 
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  documentTypeId!: number | null;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })

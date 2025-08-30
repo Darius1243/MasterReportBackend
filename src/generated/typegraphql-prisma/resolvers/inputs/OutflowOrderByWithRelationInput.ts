@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
+import { DocumentTypeOrderByWithRelationInput } from "../inputs/DocumentTypeOrderByWithRelationInput";
 import { FacilityOrderByWithRelationInput } from "../inputs/FacilityOrderByWithRelationInput";
 import { PersonOrderByWithRelationInput } from "../inputs/PersonOrderByWithRelationInput";
 import { SortOrderInput } from "../inputs/SortOrderInput";
@@ -39,6 +40,11 @@ export class OutflowOrderByWithRelationInput {
   })
   facilityId?: "asc" | "desc" | undefined;
 
+  @TypeGraphQL.Field(_type => SortOrderInput, {
+    nullable: true
+  })
+  documentTypeId?: SortOrderInput | undefined;
+
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
@@ -58,4 +64,9 @@ export class OutflowOrderByWithRelationInput {
     nullable: true
   })
   facility?: FacilityOrderByWithRelationInput | undefined;
+
+  @TypeGraphQL.Field(_type => DocumentTypeOrderByWithRelationInput, {
+    nullable: true
+  })
+  documentType?: DocumentTypeOrderByWithRelationInput | undefined;
 }

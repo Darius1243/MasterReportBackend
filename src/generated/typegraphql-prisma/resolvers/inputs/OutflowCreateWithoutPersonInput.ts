@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
+import { DocumentTypeCreateNestedOneWithoutOutflowsInput } from "../inputs/DocumentTypeCreateNestedOneWithoutOutflowsInput";
 import { FacilityCreateNestedOneWithoutOutflowInput } from "../inputs/FacilityCreateNestedOneWithoutOutflowInput";
 
 @TypeGraphQL.InputType("OutflowCreateWithoutPersonInput", {})
@@ -35,4 +36,9 @@ export class OutflowCreateWithoutPersonInput {
     nullable: false
   })
   facility!: FacilityCreateNestedOneWithoutOutflowInput;
+
+  @TypeGraphQL.Field(_type => DocumentTypeCreateNestedOneWithoutOutflowsInput, {
+    nullable: true
+  })
+  documentType?: DocumentTypeCreateNestedOneWithoutOutflowsInput | undefined;
 }

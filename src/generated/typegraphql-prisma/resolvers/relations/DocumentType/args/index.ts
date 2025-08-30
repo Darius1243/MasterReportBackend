@@ -1,0 +1,1 @@
+export { DocumentTypeOutflowsArgs } from "./DocumentTypeOutflowsArgs";

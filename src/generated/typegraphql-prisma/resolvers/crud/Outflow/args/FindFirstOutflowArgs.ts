@@ -35,5 +35,5 @@ export class FindFirstOutflowArgs {
   @TypeGraphQL.Field(_type => [OutflowScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "amount" | "date" | "description" | "personId" | "facilityId" | "createdAt" | "updatedAt"> | undefined;
+  distinct?: Array<"id" | "amount" | "date" | "description" | "personId" | "facilityId" | "documentTypeId" | "createdAt" | "updatedAt"> | undefined;
 }

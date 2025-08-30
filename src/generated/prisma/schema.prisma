@@ -35,6 +35,12 @@ model Job {
   inflows Inflow[]
 }
 
+model DocumentType {
+  id       Int       @id @default(autoincrement())
+  name     String    @unique
+  outflows Outflow[]
+}
+
 model Inflow {
   id          Int      @id @default(autoincrement())
   amount      Float
@@ -70,14 +76,13 @@ model Outflow {
   facilityId Int
   facility   Facility @relation(fields: [facilityId], references: [id])
 
+  documentTypeId Int?
+  documentType   DocumentType? @relation(fields: [documentTypeId], references: [id])
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([personId])
   @@index([facilityId])
-}
-
-model DocumentType {
-  id   Int    @id @default(autoincrement())
-  name String @unique
+  @@index([documentTypeId])
 }

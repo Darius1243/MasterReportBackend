@@ -20,8 +20,11 @@ export const documentTypeService = {
 	async createDocumentType(
 		data: DocumentTypeCreateInput
 	): Promise<DocumentType> {
+		const { name } = data
 		return prisma.documentType.create({
-			data: data,
+			data: {
+				name,
+			},
 		})
 	},
 

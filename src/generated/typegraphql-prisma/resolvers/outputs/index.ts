@@ -12,6 +12,7 @@ export { CreateManyAndReturnJob } from "./CreateManyAndReturnJob";
 export { CreateManyAndReturnOutflow } from "./CreateManyAndReturnOutflow";
 export { CreateManyAndReturnPerson } from "./CreateManyAndReturnPerson";
 export { DocumentTypeAvgAggregate } from "./DocumentTypeAvgAggregate";
+export { DocumentTypeCount } from "./DocumentTypeCount";
 export { DocumentTypeCountAggregate } from "./DocumentTypeCountAggregate";
 export { DocumentTypeGroupBy } from "./DocumentTypeGroupBy";
 export { DocumentTypeMaxAggregate } from "./DocumentTypeMaxAggregate";

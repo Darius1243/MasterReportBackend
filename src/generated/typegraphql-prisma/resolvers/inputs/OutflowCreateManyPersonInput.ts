@@ -30,6 +30,11 @@ export class OutflowCreateManyPersonInput {
   })
   facilityId!: number;
 
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  documentTypeId?: number | undefined;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: true
   })

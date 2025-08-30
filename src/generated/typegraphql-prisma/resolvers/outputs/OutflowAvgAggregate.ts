@@ -24,4 +24,9 @@ export class OutflowAvgAggregate {
     nullable: true
   })
   facilityId!: number | null;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
+    nullable: true
+  })
+  documentTypeId!: number | null;
 }

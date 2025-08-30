@@ -16,4 +16,7 @@ export class OutflowApiCreateInput {
 
 	@TypeGraphQL.Field(_type => TypeGraphQL.Int, { nullable: false })
 	facility!: number // ID объекта
+
+	@TypeGraphQL.Field(_type => TypeGraphQL.Int, { nullable: false })
+	documentType!: number // ID типа документа
 }

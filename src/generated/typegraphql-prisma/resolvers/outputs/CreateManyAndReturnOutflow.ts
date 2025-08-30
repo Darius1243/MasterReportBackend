@@ -2,6 +2,8 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
+import { CreateManyAndReturnOutflowDocumentTypeArgs } from "./args/CreateManyAndReturnOutflowDocumentTypeArgs";
+import { DocumentType } from "../../models/DocumentType";
 import { Facility } from "../../models/Facility";
 import { Person } from "../../models/Person";
 
@@ -37,6 +39,11 @@ export class CreateManyAndReturnOutflow {
   })
   facilityId!: number;
 
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  documentTypeId!: number | null;
+
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
   })
@@ -56,4 +63,14 @@ export class CreateManyAndReturnOutflow {
     nullable: false
   })
   facility!: Facility;
+
+  documentType!: DocumentType | null;
+
+  @TypeGraphQL.Field(_type => DocumentType, {
+    name: "documentType",
+    nullable: true
+  })
+  getDocumentType(@TypeGraphQL.Root() root: CreateManyAndReturnOutflow, @TypeGraphQL.Args() args: CreateManyAndReturnOutflowDocumentTypeArgs): DocumentType | null {
+    return root.documentType;
+  }
 }

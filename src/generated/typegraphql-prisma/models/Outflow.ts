@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../prisma";
 import { DecimalJSScalar } from "../scalars";
+import { DocumentType } from "../models/DocumentType";
 import { Facility } from "../models/Facility";
 import { Person } from "../models/Person";
 
@@ -40,6 +41,13 @@ export class Outflow {
   facilityId!: number;
 
   facility?: Facility;
+
+  @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
+    nullable: true
+  })
+  documentTypeId?: number | null;
+
+  documentType?: DocumentType | null;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false

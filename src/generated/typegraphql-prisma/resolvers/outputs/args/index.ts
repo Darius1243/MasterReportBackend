@@ -1,3 +1,5 @@
+export { CreateManyAndReturnOutflowDocumentTypeArgs } from "./CreateManyAndReturnOutflowDocumentTypeArgs";
+export { DocumentTypeCountOutflowsArgs } from "./DocumentTypeCountOutflowsArgs";
 export { FacilityCountInflowsArgs } from "./FacilityCountInflowsArgs";
 export { FacilityCountOutflowArgs } from "./FacilityCountOutflowArgs";
 export { JobCountInflowsArgs } from "./JobCountInflowsArgs";
