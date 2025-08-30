@@ -39,7 +39,6 @@ export class JobResolver {
 
 		if (!hasActualUpdates) {
 			const currentJob = await jobService.getJobById(id)
-
 			if (!currentJob) throw new UserInputError(`Работа с ID ${id} не найдена.`)
 
 			return currentJob

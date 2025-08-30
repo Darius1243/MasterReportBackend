@@ -1,10 +1,9 @@
 import prisma from '@config/database'
-import { Prisma } from '@generated/prisma'
 import {
 	DocumentType,
 	DocumentTypeCreateInput,
-	DocumentTypeUpdateInput,
 } from '@generated/typegraphql-prisma'
+import { DocumentTypeUpdateSimpleInput } from './Inputs/DocumentTypeUpdateSimpleInput'
 
 export const documentTypeService = {
 	async getAllDocumentTypes(): Promise<DocumentType[]> {
@@ -30,11 +29,13 @@ export const documentTypeService = {
 
 	async updateDocumentType(
 		id: number,
-		data: DocumentTypeUpdateInput
+		data: DocumentTypeUpdateSimpleInput
 	): Promise<DocumentType | null> {
 		return prisma.documentType.update({
 			where: { id },
-			data: data as Prisma.DocumentTypeUpdateInput,
+			data: {
+				name: data.name,
+			},
 		})
 	},
 

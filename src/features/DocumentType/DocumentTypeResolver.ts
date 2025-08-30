@@ -1,18 +1,12 @@
 import {
 	DocumentType,
-	DocumentTypeUpdateInput,
-    DocumentTypeCreateInput,
+	DocumentTypeCreateInput,
 } from '@generated/typegraphql-prisma'
 import { handlePrismaError } from '@utils/errors'
 import { UserInputError } from 'apollo-server-express'
-import {
-	Arg,
-	Int,
-	Mutation,
-	Query,
-	Resolver,
-} from 'type-graphql'
+import { Arg, Int, Mutation, Query, Resolver } from 'type-graphql'
 import { documentTypeService } from './documentTypeService'
+import { DocumentTypeUpdateSimpleInput } from './Inputs/DocumentTypeUpdateSimpleInput'
 
 @Resolver(DocumentType)
 export class DocumentTypeResolver {
@@ -22,7 +16,9 @@ export class DocumentTypeResolver {
 	}
 
 	@Query(() => DocumentType, { nullable: true })
-	async documentType(@Arg('id', () => Int) id: number): Promise<DocumentType | null> {
+	async documentType(
+		@Arg('id', () => Int) id: number
+	): Promise<DocumentType | null> {
 		return documentTypeService.getDocumentTypeById(id)
 	}
 
@@ -43,7 +39,8 @@ export class DocumentTypeResolver {
 	@Mutation(() => DocumentType, { nullable: true })
 	async updateDocumentType(
 		@Arg('id', () => Int) id: number,
-		@Arg('data', () => DocumentTypeUpdateInput) data: DocumentTypeUpdateInput
+		@Arg('data', () => DocumentTypeUpdateSimpleInput)
+		data: DocumentTypeUpdateSimpleInput
 	): Promise<DocumentType | null> {
 		try {
 			return await documentTypeService.updateDocumentType(id, data)
