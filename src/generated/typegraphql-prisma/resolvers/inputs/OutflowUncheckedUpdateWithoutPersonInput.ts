@@ -38,7 +38,7 @@ export class OutflowUncheckedUpdateWithoutPersonInput {
   @TypeGraphQL.Field(_type => NullableIntFieldUpdateOperationsInput, {
     nullable: true
   })
-  documentTypeId?: NullableIntFieldUpdateOperationsInput | undefined;
+  jobId?: NullableIntFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true

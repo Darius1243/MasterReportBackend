@@ -2,9 +2,9 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
-import { CreateManyAndReturnOutflowDocumentTypeArgs } from "./args/CreateManyAndReturnOutflowDocumentTypeArgs";
-import { DocumentType } from "../../models/DocumentType";
+import { CreateManyAndReturnOutflowJobArgs } from "./args/CreateManyAndReturnOutflowJobArgs";
 import { Facility } from "../../models/Facility";
+import { Job } from "../../models/Job";
 import { Person } from "../../models/Person";
 
 @TypeGraphQL.ObjectType("CreateManyAndReturnOutflow", {})
@@ -42,7 +42,7 @@ export class CreateManyAndReturnOutflow {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  documentTypeId!: number | null;
+  jobId!: number | null;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
@@ -64,13 +64,13 @@ export class CreateManyAndReturnOutflow {
   })
   facility!: Facility;
 
-  documentType!: DocumentType | null;
+  job!: Job | null;
 
-  @TypeGraphQL.Field(_type => DocumentType, {
-    name: "documentType",
+  @TypeGraphQL.Field(_type => Job, {
+    name: "job",
     nullable: true
   })
-  getDocumentType(@TypeGraphQL.Root() root: CreateManyAndReturnOutflow, @TypeGraphQL.Args() args: CreateManyAndReturnOutflowDocumentTypeArgs): DocumentType | null {
-    return root.documentType;
+  getJob(@TypeGraphQL.Root() root: CreateManyAndReturnOutflow, @TypeGraphQL.Args() args: CreateManyAndReturnOutflowJobArgs): Job | null {
+    return root.job;
   }
 }

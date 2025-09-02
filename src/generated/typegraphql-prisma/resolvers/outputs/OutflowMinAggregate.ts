@@ -38,7 +38,7 @@ export class OutflowMinAggregate {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  documentTypeId!: number | null;
+  jobId!: number | null;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true

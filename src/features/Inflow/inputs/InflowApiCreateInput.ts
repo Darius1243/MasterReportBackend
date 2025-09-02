@@ -28,7 +28,7 @@ export class InflowApiCreateInput {
 	facility!: number // ID объекта
 
 	@TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-		nullable: false,
+		nullable: true,
 	})
-	job!: number // ID работы
+	job?: number // ID работы
 }

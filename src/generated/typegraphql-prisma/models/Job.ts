@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../prisma";
 import { DecimalJSScalar } from "../scalars";
 import { Inflow } from "../models/Inflow";
+import { Outflow } from "../models/Outflow";
 import { JobCount } from "../resolvers/outputs/JobCount";
 
 @TypeGraphQL.ObjectType("Job", {})
@@ -18,6 +19,8 @@ export class Job {
   name!: string;
 
   inflows?: Inflow[];
+
+  outflows?: Outflow[];
 
   @TypeGraphQL.Field(_type => JobCount, {
     nullable: true

@@ -1,4 +1,3 @@
-export { DocumentType } from "./DocumentType";
 export { Facility } from "./Facility";
 export { Inflow } from "./Inflow";
 export { Job } from "./Job";

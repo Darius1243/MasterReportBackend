@@ -29,5 +29,5 @@ export class OutflowAvgOrderByAggregateInput {
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true
   })
-  documentTypeId?: "asc" | "desc" | undefined;
+  jobId?: "asc" | "desc" | undefined;
 }

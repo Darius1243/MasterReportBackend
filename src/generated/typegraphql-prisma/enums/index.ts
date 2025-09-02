@@ -1,4 +1,3 @@
-export { DocumentTypeScalarFieldEnum } from "./DocumentTypeScalarFieldEnum";
 export { FacilityScalarFieldEnum } from "./FacilityScalarFieldEnum";
 export { InflowScalarFieldEnum } from "./InflowScalarFieldEnum";
 export { JobScalarFieldEnum } from "./JobScalarFieldEnum";

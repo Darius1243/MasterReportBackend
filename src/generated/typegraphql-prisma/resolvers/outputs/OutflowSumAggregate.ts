@@ -28,5 +28,5 @@ export class OutflowSumAggregate {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  documentTypeId!: number | null;
+  jobId!: number | null;
 }

@@ -3,11 +3,11 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFilter } from "../inputs/DateTimeFilter";
-import { DocumentTypeNullableRelationFilter } from "../inputs/DocumentTypeNullableRelationFilter";
 import { FacilityRelationFilter } from "../inputs/FacilityRelationFilter";
 import { FloatFilter } from "../inputs/FloatFilter";
 import { IntFilter } from "../inputs/IntFilter";
 import { IntNullableFilter } from "../inputs/IntNullableFilter";
+import { JobNullableRelationFilter } from "../inputs/JobNullableRelationFilter";
 import { PersonRelationFilter } from "../inputs/PersonRelationFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 
@@ -61,7 +61,7 @@ export class OutflowWhereInput {
   @TypeGraphQL.Field(_type => IntNullableFilter, {
     nullable: true
   })
-  documentTypeId?: IntNullableFilter | undefined;
+  jobId?: IntNullableFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
@@ -83,8 +83,8 @@ export class OutflowWhereInput {
   })
   facility?: FacilityRelationFilter | undefined;
 
-  @TypeGraphQL.Field(_type => DocumentTypeNullableRelationFilter, {
+  @TypeGraphQL.Field(_type => JobNullableRelationFilter, {
     nullable: true
   })
-  documentType?: DocumentTypeNullableRelationFilter | undefined;
+  job?: JobNullableRelationFilter | undefined;
 }

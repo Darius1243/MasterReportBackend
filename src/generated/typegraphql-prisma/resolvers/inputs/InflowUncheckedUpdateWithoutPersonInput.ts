@@ -5,6 +5,7 @@ import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { FloatFieldUpdateOperationsInput } from "../inputs/FloatFieldUpdateOperationsInput";
 import { IntFieldUpdateOperationsInput } from "../inputs/IntFieldUpdateOperationsInput";
+import { NullableIntFieldUpdateOperationsInput } from "../inputs/NullableIntFieldUpdateOperationsInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType("InflowUncheckedUpdateWithoutPersonInput", {})
@@ -34,10 +35,10 @@ export class InflowUncheckedUpdateWithoutPersonInput {
   })
   facilityId?: IntFieldUpdateOperationsInput | undefined;
 
-  @TypeGraphQL.Field(_type => IntFieldUpdateOperationsInput, {
+  @TypeGraphQL.Field(_type => NullableIntFieldUpdateOperationsInput, {
     nullable: true
   })
-  jobId?: IntFieldUpdateOperationsInput | undefined;
+  jobId?: NullableIntFieldUpdateOperationsInput | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFieldUpdateOperationsInput, {
     nullable: true

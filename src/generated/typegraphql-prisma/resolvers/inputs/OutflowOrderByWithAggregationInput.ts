@@ -45,7 +45,7 @@ export class OutflowOrderByWithAggregationInput {
   @TypeGraphQL.Field(_type => SortOrderInput, {
     nullable: true
   })
-  documentTypeId?: SortOrderInput | undefined;
+  jobId?: SortOrderInput | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true

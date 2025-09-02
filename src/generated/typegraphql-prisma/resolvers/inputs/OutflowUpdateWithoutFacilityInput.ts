@@ -3,8 +3,8 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
-import { DocumentTypeUpdateOneWithoutOutflowsNestedInput } from "../inputs/DocumentTypeUpdateOneWithoutOutflowsNestedInput";
 import { FloatFieldUpdateOperationsInput } from "../inputs/FloatFieldUpdateOperationsInput";
+import { JobUpdateOneWithoutOutflowsNestedInput } from "../inputs/JobUpdateOneWithoutOutflowsNestedInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 import { PersonUpdateOneRequiredWithoutOutflowsNestedInput } from "../inputs/PersonUpdateOneRequiredWithoutOutflowsNestedInput";
 
@@ -40,8 +40,8 @@ export class OutflowUpdateWithoutFacilityInput {
   })
   person?: PersonUpdateOneRequiredWithoutOutflowsNestedInput | undefined;
 
-  @TypeGraphQL.Field(_type => DocumentTypeUpdateOneWithoutOutflowsNestedInput, {
+  @TypeGraphQL.Field(_type => JobUpdateOneWithoutOutflowsNestedInput, {
     nullable: true
   })
-  documentType?: DocumentTypeUpdateOneWithoutOutflowsNestedInput | undefined;
+  job?: JobUpdateOneWithoutOutflowsNestedInput | undefined;
 }

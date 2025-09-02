@@ -1,10 +1,10 @@
 import * as TypeGraphQL from "type-graphql";
 import type { GraphQLResolveInfo } from "graphql";
-import { DocumentType } from "../../../models/DocumentType";
 import { Facility } from "../../../models/Facility";
+import { Job } from "../../../models/Job";
 import { Outflow } from "../../../models/Outflow";
 import { Person } from "../../../models/Person";
-import { OutflowDocumentTypeArgs } from "./args/OutflowDocumentTypeArgs";
+import { OutflowJobArgs } from "./args/OutflowJobArgs";
 import { transformInfoIntoPrismaArgs, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
 
 @TypeGraphQL.Resolver(_of => Outflow)
@@ -37,16 +37,16 @@ export class OutflowRelationsResolver {
     });
   }
 
-  @TypeGraphQL.FieldResolver(_type => DocumentType, {
+  @TypeGraphQL.FieldResolver(_type => Job, {
     nullable: true
   })
-  async documentType(@TypeGraphQL.Root() outflow: Outflow, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: OutflowDocumentTypeArgs): Promise<DocumentType | null> {
+  async job(@TypeGraphQL.Root() outflow: Outflow, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: OutflowJobArgs): Promise<Job | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).outflow.findUniqueOrThrow({
       where: {
         id: outflow.id,
       },
-    }).documentType({
+    }).job({
       ...args,
       ...(_count && transformCountFieldIntoSelectRelationsCount(_count)),
     });

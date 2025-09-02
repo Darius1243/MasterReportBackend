@@ -40,10 +40,10 @@ export class InflowOrderByWithRelationInput {
   })
   facilityId?: "asc" | "desc" | undefined;
 
-  @TypeGraphQL.Field(_type => SortOrder, {
+  @TypeGraphQL.Field(_type => SortOrderInput, {
     nullable: true
   })
-  jobId?: "asc" | "desc" | undefined;
+  jobId?: SortOrderInput | undefined;
 
   @TypeGraphQL.Field(_type => SortOrder, {
     nullable: true

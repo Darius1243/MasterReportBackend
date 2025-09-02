@@ -38,7 +38,7 @@ export class OutflowUncheckedCreateInput {
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
     nullable: true
   })
-  documentTypeId?: number | undefined;
+  jobId?: number | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true

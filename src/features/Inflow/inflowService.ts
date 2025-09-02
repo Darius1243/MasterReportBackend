@@ -32,7 +32,6 @@ export const inflowService = {
 	},
 
 	async createInflow(data: InflowApiCreateInput): Promise<Inflow> {
-		// Тип data изменен
 		const {
 			person: personId,
 			facility: facilityId,
@@ -42,42 +41,36 @@ export const inflowService = {
 			description,
 		} = data
 
-		if (!personId) {
+		if (!personId)
 			throw new UserInputError('Необходимо указать ID сотрудника (personId).')
-		}
-		if (!facilityId) {
+		if (!facilityId)
 			throw new UserInputError('Необходимо указать ID объекта (facilityId).')
-		}
-		if (!jobId) {
-			throw new UserInputError('Необходимо указать ID работы (jobId).')
-		}
 
-		const [personExists, facilityExists, jobExists] = await Promise.all([
-			prisma.person.findUnique({ where: { id: personId } }),
-			prisma.facility.findUnique({ where: { id: facilityId } }),
-			prisma.job.findUnique({ where: { id: jobId } }),
-		])
-
-		if (!personExists) {
+		const personExists = await prisma.person.findUnique({
+			where: { id: personId },
+		})
+		if (!personExists)
 			throw new UserInputError(`Сотрудник с ID ${personId} не найден.`)
-		}
 
-		if (!facilityExists) {
+		const facilityExists = await prisma.facility.findUnique({
+			where: { id: facilityId },
+		})
+		if (!facilityExists)
 			throw new UserInputError(`Объект с ID ${facilityId} не найден.`)
-		}
 
-		if (!jobExists) {
-			throw new UserInputError(`Работа с ID ${jobId} не найдена.`)
-		}
-
-		// Преобразуем данные для Prisma
 		const prismaCreateData: Prisma.InflowCreateInput = {
 			amount,
 			date,
 			description,
 			person: { connect: { id: personId } },
 			facility: { connect: { id: facilityId } },
-			job: { connect: { id: jobId } },
+		}
+
+		if (jobId) {
+			const jobExists = await prisma.job.findUnique({ where: { id: jobId } })
+			if (!jobExists)
+				throw new UserInputError(`Работа с ID ${jobId} не найдена.`)
+			prismaCreateData.job = { connect: { id: jobId } }
 		}
 
 		return prisma.inflow.create({

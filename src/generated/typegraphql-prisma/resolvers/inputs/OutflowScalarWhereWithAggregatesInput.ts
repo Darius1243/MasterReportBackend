@@ -58,7 +58,7 @@ export class OutflowScalarWhereWithAggregatesInput {
   @TypeGraphQL.Field(_type => IntNullableWithAggregatesFilter, {
     nullable: true
   })
-  documentTypeId?: IntNullableWithAggregatesFilter | undefined;
+  jobId?: IntNullableWithAggregatesFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeWithAggregatesFilter, {
     nullable: true

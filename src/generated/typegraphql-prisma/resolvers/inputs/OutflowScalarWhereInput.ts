@@ -58,7 +58,7 @@ export class OutflowScalarWhereInput {
   @TypeGraphQL.Field(_type => IntNullableFilter, {
     nullable: true
   })
-  documentTypeId?: IntNullableFilter | undefined;
+  jobId?: IntNullableFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true

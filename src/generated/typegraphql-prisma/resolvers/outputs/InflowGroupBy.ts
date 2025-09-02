@@ -41,9 +41,9 @@ export class InflowGroupBy {
   facilityId!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: false
+    nullable: true
   })
-  jobId!: number;
+  jobId!: number | null;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false

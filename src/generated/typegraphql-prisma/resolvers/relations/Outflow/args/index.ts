@@ -1,1 +1,1 @@
-export { OutflowDocumentTypeArgs } from "./OutflowDocumentTypeArgs";
+export { OutflowJobArgs } from "./OutflowJobArgs";

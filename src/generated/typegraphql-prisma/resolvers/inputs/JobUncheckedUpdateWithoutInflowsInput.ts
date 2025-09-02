@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
 import { IntFieldUpdateOperationsInput } from "../inputs/IntFieldUpdateOperationsInput";
+import { OutflowUncheckedUpdateManyWithoutJobNestedInput } from "../inputs/OutflowUncheckedUpdateManyWithoutJobNestedInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType("JobUncheckedUpdateWithoutInflowsInput", {})
@@ -16,4 +17,9 @@ export class JobUncheckedUpdateWithoutInflowsInput {
     nullable: true
   })
   name?: StringFieldUpdateOperationsInput | undefined;
+
+  @TypeGraphQL.Field(_type => OutflowUncheckedUpdateManyWithoutJobNestedInput, {
+    nullable: true
+  })
+  outflows?: OutflowUncheckedUpdateManyWithoutJobNestedInput | undefined;
 }

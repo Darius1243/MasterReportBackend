@@ -101,8 +101,11 @@ export class InflowResolver {
 		return prisma.facility.findUnique({ where: { id: inflow.facilityId } })
 	}
 
-	@FieldResolver(() => Job)
+	@FieldResolver(() => Job, { nullable: true })
 	async job(@Root() inflow: Inflow): Promise<Job | null> {
+		if (inflow.jobId === null) {
+			return null
+		}
 		return prisma.job.findUnique({ where: { id: inflow.jobId } })
 	}
 }

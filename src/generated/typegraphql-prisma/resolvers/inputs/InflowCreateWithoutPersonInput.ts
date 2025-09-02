@@ -38,7 +38,7 @@ export class InflowCreateWithoutPersonInput {
   facility!: FacilityCreateNestedOneWithoutInflowsInput;
 
   @TypeGraphQL.Field(_type => JobCreateNestedOneWithoutInflowsInput, {
-    nullable: false
+    nullable: true
   })
-  job!: JobCreateNestedOneWithoutInflowsInput;
+  job?: JobCreateNestedOneWithoutInflowsInput | undefined;
 }

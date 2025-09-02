@@ -3,6 +3,7 @@ import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
 import { InflowOrderByRelationAggregateInput } from "../inputs/InflowOrderByRelationAggregateInput";
+import { OutflowOrderByRelationAggregateInput } from "../inputs/OutflowOrderByRelationAggregateInput";
 import { SortOrder } from "../../enums/SortOrder";
 
 @TypeGraphQL.InputType("JobOrderByWithRelationInput", {})
@@ -21,4 +22,9 @@ export class JobOrderByWithRelationInput {
     nullable: true
   })
   inflows?: InflowOrderByRelationAggregateInput | undefined;
+
+  @TypeGraphQL.Field(_type => OutflowOrderByRelationAggregateInput, {
+    nullable: true
+  })
+  outflows?: OutflowOrderByRelationAggregateInput | undefined;
 }

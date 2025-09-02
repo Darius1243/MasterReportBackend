@@ -36,9 +36,9 @@ export class InflowCreateManyInput {
   facilityId!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: false
+    nullable: true
   })
-  jobId!: number;
+  jobId?: number | undefined;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: true

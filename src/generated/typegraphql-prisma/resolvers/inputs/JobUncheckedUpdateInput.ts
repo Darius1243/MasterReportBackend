@@ -4,6 +4,7 @@ import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
 import { InflowUncheckedUpdateManyWithoutJobNestedInput } from "../inputs/InflowUncheckedUpdateManyWithoutJobNestedInput";
 import { IntFieldUpdateOperationsInput } from "../inputs/IntFieldUpdateOperationsInput";
+import { OutflowUncheckedUpdateManyWithoutJobNestedInput } from "../inputs/OutflowUncheckedUpdateManyWithoutJobNestedInput";
 import { StringFieldUpdateOperationsInput } from "../inputs/StringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType("JobUncheckedUpdateInput", {})
@@ -22,4 +23,9 @@ export class JobUncheckedUpdateInput {
     nullable: true
   })
   inflows?: InflowUncheckedUpdateManyWithoutJobNestedInput | undefined;
+
+  @TypeGraphQL.Field(_type => OutflowUncheckedUpdateManyWithoutJobNestedInput, {
+    nullable: true
+  })
+  outflows?: OutflowUncheckedUpdateManyWithoutJobNestedInput | undefined;
 }

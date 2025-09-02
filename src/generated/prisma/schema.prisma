@@ -30,14 +30,9 @@ model Facility {
 }
 
 model Job {
-  id      Int      @id @default(autoincrement())
-  name    String   @unique
-  inflows Inflow[]
-}
-
-model DocumentType {
   id       Int       @id @default(autoincrement())
   name     String    @unique
+  inflows  Inflow[]
   outflows Outflow[]
 }
 
@@ -53,8 +48,8 @@ model Inflow {
   facilityId Int
   facility   Facility @relation(fields: [facilityId], references: [id])
 
-  jobId Int
-  job   Job @relation(fields: [jobId], references: [id])
+  jobId Int?
+  job   Job? @relation(fields: [jobId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -76,13 +71,13 @@ model Outflow {
   facilityId Int
   facility   Facility @relation(fields: [facilityId], references: [id])
 
-  documentTypeId Int?
-  documentType   DocumentType? @relation(fields: [documentTypeId], references: [id])
+  jobId Int?
+  job   Job? @relation(fields: [jobId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([personId])
   @@index([facilityId])
-  @@index([documentTypeId])
+  @@index([jobId])
 }

@@ -35,5 +35,5 @@ export class FacilityOutflowArgs {
   @TypeGraphQL.Field(_type => [OutflowScalarFieldEnum], {
     nullable: true
   })
-  distinct?: Array<"id" | "amount" | "date" | "description" | "personId" | "facilityId" | "documentTypeId" | "createdAt" | "updatedAt"> | undefined;
+  distinct?: Array<"id" | "amount" | "date" | "description" | "personId" | "facilityId" | "jobId" | "createdAt" | "updatedAt"> | undefined;
 }

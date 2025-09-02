@@ -1,4 +1,3 @@
-import { DocumentTypeResolver } from '@features/DocumentType/DocumentTypeResolver'
 import { FacilityResolver } from '@features/Facility/FacilityResolver'
 import { InflowResolver } from '@features/Inflow/InflowResolver'
 import { JobResolver } from '@features/Job/JobResolver'
@@ -15,7 +14,6 @@ export async function createGraphQLSchema(): Promise<GraphQLSchema> {
 			JobResolver,
 			InflowResolver,
 			OutflowResolver,
-			DocumentTypeResolver,
 		],
 		validate: { forbidUnknownValues: false },
 	})

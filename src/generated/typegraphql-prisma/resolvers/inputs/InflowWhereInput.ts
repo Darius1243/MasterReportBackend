@@ -6,7 +6,8 @@ import { DateTimeFilter } from "../inputs/DateTimeFilter";
 import { FacilityRelationFilter } from "../inputs/FacilityRelationFilter";
 import { FloatFilter } from "../inputs/FloatFilter";
 import { IntFilter } from "../inputs/IntFilter";
-import { JobRelationFilter } from "../inputs/JobRelationFilter";
+import { IntNullableFilter } from "../inputs/IntNullableFilter";
+import { JobNullableRelationFilter } from "../inputs/JobNullableRelationFilter";
 import { PersonRelationFilter } from "../inputs/PersonRelationFilter";
 import { StringNullableFilter } from "../inputs/StringNullableFilter";
 
@@ -57,10 +58,10 @@ export class InflowWhereInput {
   })
   facilityId?: IntFilter | undefined;
 
-  @TypeGraphQL.Field(_type => IntFilter, {
+  @TypeGraphQL.Field(_type => IntNullableFilter, {
     nullable: true
   })
-  jobId?: IntFilter | undefined;
+  jobId?: IntNullableFilter | undefined;
 
   @TypeGraphQL.Field(_type => DateTimeFilter, {
     nullable: true
@@ -82,8 +83,8 @@ export class InflowWhereInput {
   })
   facility?: FacilityRelationFilter | undefined;
 
-  @TypeGraphQL.Field(_type => JobRelationFilter, {
+  @TypeGraphQL.Field(_type => JobNullableRelationFilter, {
     nullable: true
   })
-  job?: JobRelationFilter | undefined;
+  job?: JobNullableRelationFilter | undefined;
 }

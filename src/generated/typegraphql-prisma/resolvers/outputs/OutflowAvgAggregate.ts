@@ -28,5 +28,5 @@ export class OutflowAvgAggregate {
   @TypeGraphQL.Field(_type => TypeGraphQL.Float, {
     nullable: true
   })
-  documentTypeId!: number | null;
+  jobId!: number | null;
 }

@@ -132,11 +132,6 @@ exports.Prisma.JobScalarFieldEnum = {
   name: 'name'
 };
 
-exports.Prisma.DocumentTypeScalarFieldEnum = {
-  id: 'id',
-  name: 'name'
-};
-
 exports.Prisma.InflowScalarFieldEnum = {
   id: 'id',
   amount: 'amount',
@@ -156,7 +151,7 @@ exports.Prisma.OutflowScalarFieldEnum = {
   description: 'description',
   personId: 'personId',
   facilityId: 'facilityId',
-  documentTypeId: 'documentTypeId',
+  jobId: 'jobId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -176,7 +171,6 @@ exports.Prisma.ModelName = {
   Person: 'Person',
   Facility: 'Facility',
   Job: 'Job',
-  DocumentType: 'DocumentType',
   Inflow: 'Inflow',
   Outflow: 'Outflow'
 };

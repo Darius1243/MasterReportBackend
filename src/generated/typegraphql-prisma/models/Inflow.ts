@@ -43,11 +43,11 @@ export class Inflow {
   facility?: Facility;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: false
+    nullable: true
   })
-  jobId!: number;
+  jobId?: number | null;
 
-  job?: Job;
+  job?: Job | null;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false

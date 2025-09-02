@@ -4,6 +4,7 @@ import { Facility } from "../../../models/Facility";
 import { Inflow } from "../../../models/Inflow";
 import { Job } from "../../../models/Job";
 import { Person } from "../../../models/Person";
+import { InflowJobArgs } from "./args/InflowJobArgs";
 import { transformInfoIntoPrismaArgs, getPrismaFromContext, transformCountFieldIntoSelectRelationsCount } from "../../../helpers";
 
 @TypeGraphQL.Resolver(_of => Inflow)
@@ -37,15 +38,16 @@ export class InflowRelationsResolver {
   }
 
   @TypeGraphQL.FieldResolver(_type => Job, {
-    nullable: false
+    nullable: true
   })
-  async job(@TypeGraphQL.Root() inflow: Inflow, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo): Promise<Job> {
+  async job(@TypeGraphQL.Root() inflow: Inflow, @TypeGraphQL.Ctx() ctx: any, @TypeGraphQL.Info() info: GraphQLResolveInfo, @TypeGraphQL.Args() args: InflowJobArgs): Promise<Job | null> {
     const { _count } = transformInfoIntoPrismaArgs(info);
     return getPrismaFromContext(ctx).inflow.findUniqueOrThrow({
       where: {
         id: inflow.id,
       },
     }).job({
+      ...args,
       ...(_count && transformCountFieldIntoSelectRelationsCount(_count)),
     });
   }

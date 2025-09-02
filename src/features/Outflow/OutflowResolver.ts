@@ -1,6 +1,7 @@
 import prisma from '@config/database'
 import {
 	Facility,
+	Job,
 	Outflow,
 	OutflowUpdateInput,
 	Person,
@@ -98,5 +99,15 @@ export class OutflowResolver {
 	@FieldResolver(() => Facility)
 	async facility(@Root() outflow: Outflow): Promise<Facility | null> {
 		return prisma.facility.findUnique({ where: { id: outflow.facilityId } })
+	}
+
+	@FieldResolver(() => Job, { nullable: true })
+	async job(@Root() outflow: Outflow): Promise<Job | null> {
+		if (!outflow.jobId) {
+			return null
+		}
+		return prisma.job.findUnique({
+			where: { id: outflow.jobId },
+		})
 	}
 }

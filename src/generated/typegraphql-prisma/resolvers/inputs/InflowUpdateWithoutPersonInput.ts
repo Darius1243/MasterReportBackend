@@ -5,7 +5,7 @@ import { DecimalJSScalar } from "../../scalars";
 import { DateTimeFieldUpdateOperationsInput } from "../inputs/DateTimeFieldUpdateOperationsInput";
 import { FacilityUpdateOneRequiredWithoutInflowsNestedInput } from "../inputs/FacilityUpdateOneRequiredWithoutInflowsNestedInput";
 import { FloatFieldUpdateOperationsInput } from "../inputs/FloatFieldUpdateOperationsInput";
-import { JobUpdateOneRequiredWithoutInflowsNestedInput } from "../inputs/JobUpdateOneRequiredWithoutInflowsNestedInput";
+import { JobUpdateOneWithoutInflowsNestedInput } from "../inputs/JobUpdateOneWithoutInflowsNestedInput";
 import { NullableStringFieldUpdateOperationsInput } from "../inputs/NullableStringFieldUpdateOperationsInput";
 
 @TypeGraphQL.InputType("InflowUpdateWithoutPersonInput", {})
@@ -40,8 +40,8 @@ export class InflowUpdateWithoutPersonInput {
   })
   facility?: FacilityUpdateOneRequiredWithoutInflowsNestedInput | undefined;
 
-  @TypeGraphQL.Field(_type => JobUpdateOneRequiredWithoutInflowsNestedInput, {
+  @TypeGraphQL.Field(_type => JobUpdateOneWithoutInflowsNestedInput, {
     nullable: true
   })
-  job?: JobUpdateOneRequiredWithoutInflowsNestedInput | undefined;
+  job?: JobUpdateOneWithoutInflowsNestedInput | undefined;
 }

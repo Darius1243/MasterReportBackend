@@ -35,6 +35,7 @@ export const outflowService = {
 		const {
 			person: personId,
 			facility: facilityId,
+			job: jobId,
 			amount,
 			date,
 			description,
@@ -47,9 +48,10 @@ export const outflowService = {
 			throw new UserInputError('Необходимо указать ID объекта (facilityId).')
 		}
 
-		const [personExists, facilityExists] = await Promise.all([
+		const [personExists, facilityExists, jobExists] = await Promise.all([
 			prisma.person.findUnique({ where: { id: personId } }),
 			prisma.facility.findUnique({ where: { id: facilityId } }),
+			jobId ? prisma.job.findUnique({ where: { id: jobId } }) : Promise.resolve(true),
 		])
 
 		if (!personExists) {
@@ -60,6 +62,10 @@ export const outflowService = {
 			throw new UserInputError(`Объект с ID ${facilityId} не найден.`)
 		}
 
+		if (jobId && !jobExists) {
+			throw new UserInputError(`Работа с ID ${jobId} не найдена.`)
+		}
+
 		// Преобразуем данные для Prisma
 		const prismaCreateData: Prisma.OutflowCreateInput = {
 			amount,
@@ -67,6 +73,10 @@ export const outflowService = {
 			description,
 			person: { connect: { id: personId } },
 			facility: { connect: { id: facilityId } },
+		}
+
+		if (jobId) {
+			prismaCreateData.job = { connect: { id: jobId } }
 		}
 
 		return prisma.outflow.create({

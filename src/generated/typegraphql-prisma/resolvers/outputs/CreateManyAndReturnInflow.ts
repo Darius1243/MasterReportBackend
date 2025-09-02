@@ -2,6 +2,7 @@ import * as TypeGraphQL from "type-graphql";
 import * as GraphQLScalars from "graphql-scalars";
 import { Prisma } from "../../../prisma";
 import { DecimalJSScalar } from "../../scalars";
+import { CreateManyAndReturnInflowJobArgs } from "./args/CreateManyAndReturnInflowJobArgs";
 import { Facility } from "../../models/Facility";
 import { Job } from "../../models/Job";
 import { Person } from "../../models/Person";
@@ -39,9 +40,9 @@ export class CreateManyAndReturnInflow {
   facilityId!: number;
 
   @TypeGraphQL.Field(_type => TypeGraphQL.Int, {
-    nullable: false
+    nullable: true
   })
-  jobId!: number;
+  jobId!: number | null;
 
   @TypeGraphQL.Field(_type => Date, {
     nullable: false
@@ -63,8 +64,13 @@ export class CreateManyAndReturnInflow {
   })
   facility!: Facility;
 
+  job!: Job | null;
+
   @TypeGraphQL.Field(_type => Job, {
-    nullable: false
+    name: "job",
+    nullable: true
   })
-  job!: Job;
+  getJob(@TypeGraphQL.Root() root: CreateManyAndReturnInflow, @TypeGraphQL.Args() args: CreateManyAndReturnInflowJobArgs): Job | null {
+    return root.job;
+  }
 }
