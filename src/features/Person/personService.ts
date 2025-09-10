@@ -55,10 +55,18 @@ export const personService = {
 	},
 
 	async createPerson(data: PersonCreateInput): Promise<Person> {
+		if (data.email === '') {
+			data.email = undefined
+		}
+
 		return prisma.person.create({ data: data as Prisma.PersonCreateInput })
 	},
 
 	async updatePerson(id: number, data: any): Promise<Person | null> {
+		if (data.email === '') {
+			data.email = null
+		}
+
 		const prismaData: any = {}
 		for (const key in data) {
 			if (
